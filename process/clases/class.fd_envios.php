@@ -1,0 +1,74 @@
+<?php
+
+class fd_envios
+{
+	var $BD;
+	
+	function __construct()
+	{
+		$this->BD = new MySQL_Clase();	
+	}
+	
+	function Registrar_Envio($fecha, $descripcion)
+	{
+		$this->BD->Conectar();
+		$consulta="INSERT INTO fd_envios(FECHA, DESCRIPCION) VALUES('$fecha', '$descripcion')";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+	function Extraer_Envios()
+	{
+		$this->BD->Conectar();
+		$consulta="SELECT ID, FECHA, DESCRIPCION, ENVIADO, RECIBIDO FROM fd_envios";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+	function Extraer_Envios_NO_Enviados()
+	{
+		$this->BD->Conectar();
+		$consulta="SELECT ID, FECHA, DESCRIPCION, ENVIADO, RECIBIDO FROM fd_envios WHERE ENVIADO = 0";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+	function Modificar_Envio($id, $fecha, $descripcion, $enviado, $recibido)
+	{
+		$this->BD->Conectar();
+		$consulta="UPDATE fd_envios SET FECHA='$fecha', DESCRIPCION='$descripcion', ENVIADO=$enviado, RECIBIDO=$recibido WHERE ID=$id";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+	function Eliminar_Envio($id)
+	{
+		$this->BD->Conectar();
+		$consulta="DELETE FROM fd_envios WHERE ID = '$id'";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+	function blanco()
+	{
+		$this->BD->Conectar();
+		$consulta="";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+}
+
+?>

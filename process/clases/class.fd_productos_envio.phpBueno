@@ -1,0 +1,98 @@
+<?php
+
+class fd_productos_envio
+{
+	var $BD;
+	
+	function fd_productos_envio()
+	{
+		$this->BD = new MySQL_Clase();	
+	}
+	
+	function Extraer_Nombre_Producto($id)
+	{
+		$this->BD->Conectar();
+		$consulta="SELECT post_title NOMBRE_PRODUCTO FROM wp_posts WHERE ID = $id";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+	function Extraer_ID_Productos()
+	{
+		$this->BD->Conectar();
+		$consulta="SELECT ID FROM wp_posts WHERE post_type = 'post'";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+	function Anadir_Producto_Envio($id_envio, $codigo_barras, $cantidad, $nombre_producto)
+	{
+		if(!$cantidad) $cantidad = 1;
+		$this->BD->Conectar();
+		$consulta="INSERT INTO fd_productos_envio(ID_ENVIO, CODIGO_BARRA, CANTIDAD, NOMBRE) VALUES($id_envio, $codigo_barras, $cantidad, '$nombre_producto')";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+	function Verificar_Producto_En_Lista_Actual($codigo_barras, $id_envio)
+	{
+		$this->BD->Conectar();
+		$consulta="SELECT ID, CANTIDAD FROM fd_productos_envio WHERE ID_ENVIO = $id_envio AND CODIGO_BARRA = $codigo_barras";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+
+		return $res;
+	}
+
+	function Extraer_Productos_Envio($id)
+	{
+		$this->BD->Conectar();
+		//$consulta="SELECT ID, CODIGO_BARRA, CANTIDAD, NOMBRE FROM fd_productos_envio WHERE ID_ENVIO = $id";
+
+		$consulta="SELECT pe.ID ID, pe.CODIGO_BARRA CODIGO_BARRA, pe.CANTIDAD CANTIDAD, pe.NOMBRE NOMBRE FROM fd_productos_envio pe, fd_envios e WHERE e.ID = pe.ID_ENVIO AND pe.ID_ENVIO = $id AND e.RECIBIDO = 0";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+	function Modificar_Producto_Envio($id, $cantidad)
+	{
+		$this->BD->Conectar();
+		$consulta="UPDATE fd_productos_envio SET CANTIDAD = $cantidad WHERE ID = $id";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+	function Eliminar_Producto($id_eliminar)
+	{
+		$this->BD->Conectar();
+		$consulta="DELETE FROM fd_productos_envio WHERE ID = $id_eliminar";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+	function Eliminar_Productos_de_Envio($id_envio)
+	{
+		$this->BD->Conectar();
+		$consulta="DELETE FROM fd_productos_envio WHERE ID_ENVIO = $id_envio";
+		$res = $this->BD->Query($consulta) or die(mysql_error());
+		$this->BD->Desconectar();
+		
+		return $res;
+	}
+
+
+}
+
+?>

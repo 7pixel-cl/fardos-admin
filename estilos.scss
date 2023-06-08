@@ -1,0 +1,1505 @@
+//*************************************************************************************************************
+//												SECCIÓN COMÚN
+//*************************************************************************************************************
+
+	.registro_envio, .envios, .vendedores, #eliminar_regresar, #modificar_regresar, #consultar_regresar, 
+	#label_mensaje, .registro_vendedor, #modificar_regresar_vendedor, #eliminar_regresar_vendedor, 
+	#consultar_regresar_vendedor, .productos, #anadir_regresar_producto, #modificar_regresar_producto,
+	#eliminar_regresar_producto, #consultar_regresar_producto, .stock, #consultar_regresar_stock, 
+	#modificar_regresar_stock, .ventas, #crear_venta_regresar, #anular_venta_regresar, #historico_ventas_regresar, #regresar_historico
+	{
+		display: none;
+	}
+
+    .correcto
+    {
+    	background-color: #4da6ff;
+    }
+
+    .incorrecto
+    {
+    	background-color: #ff0000;
+    }
+
+	.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate
+	{
+		position: relative;
+		top: 100px;
+	}
+
+	.paginate_button.current
+	{
+		background-color: white !important;
+		background: none !important;
+	}
+
+	table
+	{
+		width:800px;
+
+		tr
+		{
+			height: 50px;
+		}
+		td
+		{
+			padding: 5px;
+		}
+		.encabezado
+		{
+			background-color: #0066cc;
+			color: white;
+			font-weight: bold;
+		}
+
+		.encabezado_rojo
+		{
+			background-color: #ff0000;
+			color: white;
+			font-weight: bold;
+		}
+
+		.azul
+		{
+			background-color: #b3d9ff !important;
+		}
+
+		.blanco
+		{
+			background-color: white !important;
+		}
+
+		.ancho
+		{
+			width: 30px;
+			text-align: center;
+		}
+
+		.anchofecha
+		{
+			width: 150px;
+		}
+	}
+
+#menu
+{
+	position: relative;
+	width: 100%;
+    text-align: center;
+    top: 20px;
+
+    #envios, #productos, #stock, #vendedores, #ventas
+	{
+		padding: 10px;
+		width: 120px;
+		display: inline-block;
+		margin: 0 auto;
+		top: 30px;
+		text-align: center;
+		font-size: 20px;
+		font-weight: bold;
+		color: white;
+		cursor: pointer;
+		&:hover
+		{
+			background-color: gray;
+			transition: 0.5s all;
+		}
+	}
+
+	#envios
+	{
+		background-color: #0000cc;
+	}
+	#productos
+	{
+		background-color: #ffc34d;
+	}
+	#stock
+	{
+		background-color: #558000;
+	}
+	#vendedores
+	{
+		background-color: #cc6600;
+	}
+	#ventas
+	{
+		background-color: #cccc00;
+	}
+}
+
+	#anular_venta
+	{
+		top: 145px;
+	}
+
+	//#crear, #modificar, #eliminar, #consultar
+	.boton_opciones
+	{
+		position: relative;
+		width: 200px;
+		padding: 20px;
+		color: white;
+		text-align: center;
+		margin: 0 auto;
+		font-size: 20px;
+		font-weight: bold;
+		cursor: pointer;
+	}
+
+	#crear_regresar, #eliminar_regresar, #modificar_regresar, #consultar_regresar, #crear_regresar_vendedor, 
+	#modificar_regresar_vendedor, #eliminar_regresar_vendedor, #consultar_regresar_vendedor, #anadir_regresar_producto, 
+	#modificar_regresar_producto, #eliminar_regresar_producto, #consultar_regresar_producto, #consultar_regresar_stock, 
+	#modificar_regresar_stock, #crear_venta_regresar, #anular_venta_regresar, #historico_ventas_regresar, #regresar_historico
+	{
+		position: relative;
+		background-color: #3399ff;
+		top: 180px;
+		width: 200px;
+	    margin: 0 auto;
+	    text-align: center;
+	    color: white;
+	    padding: 10px;
+	    font-weight: bold;
+	    cursor: pointer;
+	    z-index: 200000;
+		&:hover
+		{
+			background-color: gray;
+		}
+		margin-bottom: 150px;
+	}
+
+	//#crear
+	.crear
+	{
+		background-color: blue;
+		top:100px;
+		&:hover
+		{
+			background-color: gray;
+		}
+	}
+
+	//#modificar
+	.modificar
+	{
+		background-color: orange;
+		top:130px;
+		&:hover
+		{
+			background-color: gray;
+		}
+	}
+
+	//#eliminar
+	.eliminar
+	{
+		background-color: red;
+		top:160px;
+		&:hover
+		{
+			background-color: gray;
+		}
+	}
+
+	//#consultar
+	.consultar
+	{
+		background-color: cyan;
+		top:190px;
+		&:hover
+		{
+			background-color: gray;
+		}
+	}
+
+	.generar
+	{
+		background-color: #558000;
+		top:220px;
+		&:hover
+		{
+			background-color: gray;
+		}
+	}
+
+	.generar_img
+	{
+		background-color: #558000;
+		top:250px;
+		&:hover
+		{
+			background-color: gray;
+		}
+	}
+
+//*************************************************************************************************************
+//												SECCIÓN ENVÍOS
+//*************************************************************************************************************
+
+	#eliminar_envios
+	{
+		position: relative;
+	    background-color: red;
+	    top: 160px;
+	    left: 285px;
+	    width: 300px;
+	    margin: 0 auto;
+	    padding: 20px;
+	    text-align: center;
+	    color: white;
+	    font-size: 20px;
+	    font-weight: bold;
+	    cursor: pointer;
+	    border: 0;
+    	&:hover
+		{
+			background-color: gray;
+		}
+	}
+
+	#modificar_envios
+	{
+		position: relative;
+	    background-color: orange;
+	    top: 160px;
+	    left: 285px;
+	    width: 300px;
+	    margin: 0 auto;
+	    padding: 20px;
+	    text-align: center;
+	    color: white;
+	    font-size: 20px;
+	    font-weight: bold;
+	    cursor: pointer;
+	    border: 0;
+    	&:hover
+		{
+			background-color: gray;
+		}
+	}
+
+	#crear_form
+	{
+	    position: relative;
+	    margin: 0 auto;
+	    width: 500px;
+
+	    .mensaje_crear_registro
+	    {
+	    	position: relative;
+	    	margin: 0 auto;
+	    	width: 500px;
+	    	padding: 10px 0px;
+	    	color: white;
+	    	font-weight: bold;
+	    	top: 70px;
+	    	text-align: center;
+	    	font-size: 18px;
+	    	display: none;
+	    }
+
+		#label_mensaje_registro
+		{
+			position: relative;
+		    text-align: center;
+		    top: 80px;
+		    font-weight: bold;
+		    font-size: 20px;
+		}
+
+	    #label_crear_registro
+	    {
+			position: relative;
+		    top: 95px;
+		    left: 50px;
+		    font-weight: bold;
+	    }
+
+		#label_descripcion_registro
+	    {
+			position: relative;
+		    top: 125px;
+		    left: 50px;
+		    font-weight: bold;
+	    }
+
+		#crear_registro
+		{
+			position: relative;
+			background-color: blue;
+			top:150px;
+			width: 225px;
+			height: 45px;
+			border: 0;
+		    margin: 0 auto;
+		    text-align: center;
+		    color: white;
+		    font-weight: bold;
+		    cursor: pointer;
+    		&:hover
+			{
+				background-color: gray;
+			}
+		}
+
+		#fecha_registro
+		{
+			position: relative;
+			margin: 0 auto;
+			top: 100px;
+			width: 400px;
+			right: 0;
+		}
+
+		#descripcion_registro
+		{
+			position: relative;
+			margin: 0 auto;
+			top: 130px;
+			width: 400px;
+			height: 200px;
+		}
+	}
+
+	#modificar_form
+	{
+	    position: relative;
+	    margin: 0 auto;
+	    width: 900px;
+
+	    .mensaje_modificar_envio
+	    {
+	    	position: relative;
+	    	margin: 0 auto;
+	    	width: 500px;
+	    	padding: 10px 0px;
+	    	color: white;
+	    	font-weight: bold;
+	    	top: 70px;
+	    	text-align: center;
+	    	font-size: 18px;
+	    	display: none;
+	    }
+
+	    #modificar_envio
+	    {
+	    	position: relative;
+	    	top: 100px;
+	    }
+
+		#label_mensaje
+		{
+			position: relative;
+		    text-align: center;
+		    top: 80px;
+		    font-weight: bold;
+		    font-size: 20px;
+		}
+	}
+
+	#eliminar_form
+	{
+	    position: relative;
+	    margin: 0 auto;
+	    width: 900px;
+
+
+	    .mensaje_eliminar_envio
+	    {
+	    	position: relative;
+	    	margin: 0 auto;
+	    	width: 500px;
+	    	padding: 10px 0px;
+	    	color: white;
+	    	font-weight: bold;
+	    	top: 70px;
+	    	text-align: center;
+	    	font-size: 18px;
+	    	display: none;
+	    }
+
+		#label_mensaje
+		{
+			position: relative;
+		    text-align: center;
+		    top: 80px;
+		    font-weight: bold;
+		    font-size: 20px;
+		}
+
+	    #eliminar_envio
+	    {
+	    	position: relative;
+	    	top: 100px;
+	    }
+	}
+
+	#consultar_form
+	{
+	    position: relative;
+	    margin: 0 auto;
+	    width: 900px;
+
+		#label_mensaje
+		{
+			position: relative;
+		    text-align: center;
+		    top: 80px;
+		    font-weight: bold;
+		    font-size: 20px;
+		}
+
+	    #consultar_envio
+	    {
+	    	position: relative;
+	    	top: 100px;
+	    }
+	}
+
+
+//*************************************************************************************************************
+//												SECCIÓN VENDEDORES
+//*************************************************************************************************************
+
+.vendedores
+{
+	width: 300px !important;
+}
+
+	#crear_vendedor_form
+	{
+	    position: relative;
+	    margin: 0 auto;
+	    width: 500px;
+
+	    .mensaje_crear_registro_vendedor
+	    {
+	    	position: relative;
+	    	margin: 0 auto;
+	    	width: 500px;
+	    	padding: 10px 0px;
+	    	color: white;
+	    	font-weight: bold;
+	    	top: 70px;
+	    	text-align: center;
+	    	font-size: 18px;
+	    	display: none;
+	    }
+
+		#label_mensaje_registro
+		{
+			position: relative;
+		    text-align: center;
+		    top: 80px;
+		    font-weight: bold;
+		    font-size: 20px;
+		}
+
+		.registro_vendedor 
+		{
+		    position: relative;
+		    top: 100px;
+		    margin: 0 auto;
+			font-size: 17px;
+		    width: 500px;
+		    height: 40px;
+		    line-height: 48px;
+		    font-weight: bold;
+		}
+
+		#crear_registro_vendedor
+		{
+			position: relative;
+			background-color: blue;
+			top:150px;
+			width: 418px;
+			height: 55px;
+			border: 0;
+		    margin: 0 auto;
+		    text-align: center;
+		    color: white;
+		    font-weight: bold;
+		    cursor: pointer;
+    		&:hover
+			{
+				background-color: gray;
+			}
+		}
+
+		#crear_regresar_vendedor
+		{
+			position: relative !important;
+			top: 170px !important;
+			width: 400px !important;
+		}
+	}
+
+	#modificar_vendedor_form
+	{
+	    position: relative;
+	    margin: 0 auto;
+	    width: 900px;
+
+	    .mensaje_modificar_vendedor
+	    {
+	    	position: relative;
+	    	margin: 0 auto;
+	    	width: 500px;
+	    	padding: 10px 0px;
+	    	color: white;
+	    	font-weight: bold;
+	    	top: 70px;
+	    	text-align: center;
+	    	font-size: 18px;
+	    	display: none;
+	    }
+
+	    #modificar_vendedor_tabla
+	    {
+	    	position: relative;
+	    	top: 100px;
+	    }
+
+		#label_mensaje
+		{
+			position: relative;
+		    text-align: center;
+		    top: 80px;
+		    font-weight: bold;
+		    font-size: 20px;
+		}
+
+		#modificar_vendedor_submit
+		{
+			position: relative;
+		    background-color: orange;
+		    top: 160px;
+		    left: 285px;
+		    width: 300px;
+		    margin: 0 auto;
+		    padding: 20px;
+		    text-align: center;
+		    color: white;
+		    font-size: 20px;
+		    font-weight: bold;
+		    cursor: pointer;
+		    border: 0;
+	    	&:hover
+			{
+				background-color: gray;
+			}
+		}
+
+	}
+
+	#eliminar_vendedor_form
+	{
+	    position: relative;
+	    margin: 0 auto;
+	    width: 900px;
+
+
+	    .mensaje_eliminar_vendedor
+	    {
+	    	position: relative;
+	    	margin: 0 auto;
+	    	width: 500px;
+	    	padding: 10px 0px;
+	    	color: white;
+	    	font-weight: bold;
+	    	top: 70px;
+	    	text-align: center;
+	    	font-size: 18px;
+	    	display: none;
+	    }
+
+		#label_mensaje
+		{
+			position: relative;
+		    text-align: center;
+		    top: 80px;
+		    font-weight: bold;
+		    font-size: 20px;
+		}
+
+	    #eliminar_vendedor_tabla
+	    {
+	    	position: relative;
+	    	top: 100px;
+	    }
+
+		#eliminar_vendedor_submit
+		{
+			position: relative;
+		    background-color: red;
+		    top: 160px;
+		    left: 285px;
+		    width: 300px;
+		    margin: 0 auto;
+		    padding: 20px;
+		    text-align: center;
+		    color: white;
+		    font-size: 20px;
+		    font-weight: bold;
+		    cursor: pointer;
+		    border: 0;
+	    	&:hover
+			{
+				background-color: gray;
+			}
+		}
+
+	}
+
+	#consultar_vendedor_form
+	{
+	    position: relative;
+	    margin: 0 auto;
+	    width: 900px;
+
+		#label_mensaje
+		{
+			position: relative;
+		    text-align: center;
+		    top: 80px;
+		    font-weight: bold;
+		    font-size: 20px;
+		}
+
+	    #consultar_vendedor_tabla
+	    {
+	    	position: relative;
+	    	top: 100px;
+	    }
+	}
+
+//*************************************************************************************************************
+//												SECCIÓN PRODUCTOS
+//*************************************************************************************************************
+
+.productos
+{
+	width: 500px !important;
+}
+
+#anadir_producto_form
+{
+    position: relative;
+    margin: 0 auto;
+    width: 900px;
+    top: 30px;
+
+    .mensaje_anadir_producto
+    {
+    	position: relative;
+    	margin: 0 auto;
+    	width: 500px;
+    	padding: 10px 0px;
+    	color: white;
+    	font-weight: bold;
+    	top: 70px;
+    	text-align: center;
+    	font-size: 18px;
+    	display: none;
+    }
+
+	#label_mensaje
+	{
+		position: relative;
+	    text-align: center;
+	    top: 80px;
+	    font-weight: bold;
+	    font-size: 20px;
+	}
+
+    #anadir_producto_tabla
+    {
+    	position: relative;
+    	top: 100px;
+    }
+
+    .boton_anadir_producto
+    {
+    	width: 100px;
+    	font-size: 14px;
+    	color: white;
+    	background-color: #4da6ff;
+    	padding: 5px;
+    	cursor: pointer;
+    	&:hover
+    	{
+    		background-color: gray;
+    	}
+    }
+
+    #mensaje_anadir
+    {
+	    position: relative;
+	    text-align: center;
+	    top: 100px;
+		font-size: 18px;
+    	font-weight: bold;
+    }
+
+    #tabla_anadir_productos
+    {
+    	position: relative;
+    	top: 120px;
+    	width: 300px !important;
+    	margin: 0 auto;
+    	z-index: 200000000;
+
+    	tr
+    	{
+    		height: 0;
+    		td
+    		{
+    			padding: 2px;
+			    font-size: 14px;
+			    font-weight: bold;
+
+    			#cantidad
+    			{
+    				width: 50px;
+    			}
+
+    			#anadir_producto_submit
+    			{
+					background-color: blue;
+				    color: white;
+				    width: 100px;
+				    border: 0;
+				    cursor: pointer;
+    			}
+    		}
+    	}
+
+    }
+
+	#tabla_productos_envios_registrados
+	{
+    	position: relative;
+    	top: 170px;
+    	margin: 0 auto;
+    	z-index: 2000000;
+
+	}
+	#imprimir_productos_agregados
+	{
+		.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate
+		{
+			position: relative !important;
+			top: 170px !important;
+		}
+	}
+}
+
+#modificar_productos_form
+{
+    position: relative;
+    margin: 0 auto;
+    width: 900px;
+    top: 30px;
+
+    .mensaje_modificar_producto
+    {
+    	position: relative;
+    	margin: 0 auto;
+    	width: 500px;
+    	padding: 10px 0px;
+    	color: white;
+    	font-weight: bold;
+    	top: 70px;
+    	text-align: center;
+    	font-size: 18px;
+    	display: none;
+    }
+
+	#label_mensaje
+	{
+		position: relative;
+	    text-align: center;
+	    top: 80px;
+	    font-weight: bold;
+	    font-size: 20px;
+	}
+
+    #modificar_producto_tabla
+    {
+    	position: relative;
+    	top: 100px;
+    }
+
+    .boton_modificar_producto
+    {
+    	width: 100px;
+    	font-size: 14px;
+    	color: white;
+    	background-color: #4da6ff;
+    	padding: 5px;
+    	cursor: pointer;
+    	&:hover
+    	{
+    		background-color: gray;
+    	}
+    }
+
+    #mensaje_modificar
+    {
+	    position: relative;
+	    text-align: center;
+	    top: 100px;
+		font-size: 18px;
+    	font-weight: bold;
+    }
+	
+	.cantidad
+	{
+		width: 50px;
+	}
+
+	#tabla_productos_envios_registrados_modificar
+	{
+    	position: relative;
+    	top: 170px;
+    	margin: 0 auto;
+    	z-index: 2000000;
+	}
+
+	#imprimir_productos_modificados
+	{
+		#modificar_producto_submit
+		{
+			background-color: blue;
+		    color: white;
+		    width: 160px;
+		    padding: 10px;
+		    border: 0;
+		    cursor: pointer;
+			position: relative;
+		    top: 170px;
+		    left: 362px;
+		    font-weight: bold;
+		}
+
+		.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate
+		{
+			position: relative !important;
+			top: 170px !important;
+		}
+	}
+}
+
+#eliminar_productos_form
+{
+    position: relative;
+    margin: 0 auto;
+    width: 900px;
+    top: 30px;
+
+    .mensaje_eliminar_producto
+    {
+    	position: relative;
+    	margin: 0 auto;
+    	width: 500px;
+    	padding: 10px 0px;
+    	color: white;
+    	font-weight: bold;
+    	top: 70px;
+    	text-align: center;
+    	font-size: 18px;
+    	display: none;
+    }
+
+	#label_mensaje
+	{
+		position: relative;
+	    text-align: center;
+	    top: 80px;
+	    font-weight: bold;
+	    font-size: 20px;
+	}
+
+    #eliminar_producto_tabla
+    {
+    	position: relative;
+    	top: 100px;
+    }
+
+    .boton_eliminar_producto
+    {
+    	width: 100px;
+    	font-size: 14px;
+    	color: white;
+    	background-color: #4da6ff;
+    	padding: 5px;
+    	cursor: pointer;
+    	&:hover
+    	{
+    		background-color: gray;
+    	}
+    }
+
+    #mensaje_eliminar
+    {
+	    position: relative;
+	    text-align: center;
+	    top: 100px;
+		font-size: 18px;
+    	font-weight: bold;
+    }
+
+	.cantidad
+	{
+		width: 50px;
+	}
+
+	#tabla_productos_envios_registrados_eliminar
+	{
+    	position: relative;
+    	top: 170px;
+    	margin: 0 auto;
+    	z-index: 2000000;
+	}
+	#imprimir_productos_eliminados, #impresion_tabla_eliminar_producto
+	{
+		.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate
+		{
+			position: relative !important;
+			top: 170px !important;
+		}
+
+		#eliminar_producto_submit
+		{
+			background-color: red;
+		    color: white;
+		    width: 160px;
+		    padding: 5px;
+		    border: 0;
+		    cursor: pointer;
+			position: relative;
+		    top: 170px;
+		    left: 362px;
+		    font-weight: bold;
+
+		    &:hover
+		    {
+		    	background-color: gray;
+		    }
+		}
+
+	}
+}
+
+#consultar_productos_form
+{
+    position: relative;
+    margin: 0 auto;
+    width: 900px;
+    top: 30px;
+
+	#label_mensaje
+	{
+		position: relative;
+	    text-align: center;
+	    top: 80px;
+	    font-weight: bold;
+	    font-size: 20px;
+	}
+
+    #consultar_producto_tabla
+    {
+    	position: relative;
+    	top: 100px;
+    }
+
+    .boton_consultar_producto
+    {
+    	width: 100px;
+    	font-size: 14px;
+    	color: white;
+    	background-color: #4da6ff;
+    	padding: 5px;
+    	cursor: pointer;
+    	&:hover
+    	{
+    		background-color: gray;
+    	}
+    }
+
+    #mensaje_consultar
+    {
+	    position: relative;
+	    text-align: center;
+	    top: 100px;
+		font-size: 18px;
+    	font-weight: bold;
+    }
+
+	.cantidad
+	{
+		width: 50px;
+	}
+
+	#tabla_productos_envios_registrados_consultar
+	{
+    	position: relative;
+    	top: 170px;
+    	margin: 0 auto;
+    	z-index: 2000000;
+	}
+	#imprimir_productos_consultados, #impresion_tabla_consultar_producto
+	{
+		.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate
+		{
+			position: relative !important;
+			top: 170px !important;
+		}
+
+		#consultar_producto_submit
+		{
+			background-color: red;
+		    color: white;
+		    width: 160px;
+		    padding: 5px;
+		    border: 0;
+		    cursor: pointer;
+			position: relative;
+		    top: 170px;
+		    left: 362px;
+		    font-weight: bold;
+
+		    &:hover
+		    {
+		    	background-color: gray;
+		    }
+		}
+
+	}
+}
+
+//*************************************************************************************************************
+//												SECCIÓN STOCK
+//*************************************************************************************************************
+
+.stock
+{
+	width: 300px !important;
+}
+
+#consultar_stock_form
+{
+    position: relative;
+    margin: 0 auto;
+    width: 900px;
+
+	#label_mensaje
+	{
+		position: relative;
+	    text-align: center;
+	    top: 80px;
+	    font-weight: bold;
+	    font-size: 20px;
+	}
+
+    #consultar_stock_tabla
+    {
+    	position: relative;
+    	top: 100px;
+    }
+}
+
+#modificar_stock_form
+{
+    position: relative;
+    margin: 0 auto;
+    width: 900px;
+
+    .mensaje_modificar_stock
+    {
+    	position: relative;
+    	margin: 0 auto;
+    	width: 500px;
+    	padding: 10px 0px;
+    	color: white;
+    	font-weight: bold;
+    	top: 70px;
+    	text-align: center;
+    	font-size: 18px;
+    	display: none;
+    }
+
+    #modificar_stock_tabla
+    {
+    	position: relative;
+    	top: 100px;
+
+    	.ancho_stock
+    	{
+    		width: 100px !important;
+    	}
+
+    	.ancho_stock_full
+    	{
+    		width: 450px !important;
+    	}
+    }
+
+	#label_mensaje
+	{
+		position: relative;
+	    text-align: center;
+	    top: 80px;
+	    font-weight: bold;
+	    font-size: 20px;
+	}
+
+	#modificar_stock_submit
+	{
+		position: relative;
+	    background-color: orange;
+	    top: 160px;
+	    left: 285px;
+	    width: 300px;
+	    margin: 0 auto;
+	    padding: 20px;
+	    text-align: center;
+	    color: white;
+	    font-size: 20px;
+	    font-weight: bold;
+	    cursor: pointer;
+	    border: 0;
+    	&:hover
+		{
+			background-color: gray;
+		}
+	}
+
+}
+
+//*************************************************************************************************************
+//												SECCIÓN VENTAS
+//*************************************************************************************************************
+
+#crear_venta_form
+{
+    position: relative;
+    margin: 0 auto;
+    width: 1200px;
+    top: 30px;
+
+    .mensaje_crear_venta
+    {
+    	position: relative;
+    	margin: 0 auto;
+    	width: 500px;
+    	padding: 10px 0px;
+    	color: white;
+    	font-weight: bold;
+    	top: 70px;
+    	text-align: center;
+    	font-size: 18px;
+    	display: none;
+    }
+
+	#label_mensaje
+	{
+		position: relative;
+	    text-align: center;
+	    top: 80px;
+	    font-weight: bold;
+	    font-size: 20px;
+	}
+
+    #crear_venta_tabla
+    {
+    	position: relative;
+    	top: 100px;
+    }
+
+    .boton_crear_venta
+    {
+    	width: 100px;
+    	font-size: 14px;
+    	color: white;
+    	background-color: #4da6ff;
+    	padding: 5px;
+    	cursor: pointer;
+    	&:hover
+    	{
+    		background-color: gray;
+    	}
+    }
+
+    #mensaje_crear_venta
+    {
+	    position: relative;
+	    text-align: center;
+	    top: 100px;
+		font-size: 18px;
+    	font-weight: bold;
+    }
+
+    #tabla_crear_ventas
+    {
+    	position: relative;
+    	top: 120px;
+    	width: 300px !important;
+    	margin: 0 auto;
+    	z-index: 200000000;
+
+    	tr
+    	{
+    		height: 0;
+    		td
+    		{
+    			padding: 2px;
+			    font-size: 14px;
+			    font-weight: bold;
+
+    			#cantidad
+    			{
+    				width: 50px;
+    			}
+
+    			#crear_venta_submit
+    			{
+					background-color: blue;
+				    color: white;
+				    width: 100px;
+				    border: 0;
+				    cursor: pointer;
+    			}
+    		}
+    	}
+
+    }
+
+	#boton_crear_venta
+	{
+		position: relative;
+    	top: 164px;
+	    left: 547px;
+    	background-color: blue;
+	    color: white;
+	    width: 100px;
+	    padding: 10px;
+	    border: 0;
+	    cursor: pointer;
+	}
+
+	#tabla_productos_registrados
+	{
+    	position: relative;
+    	top: 170px;
+    	margin: 0 auto;
+    	//width: 1200px;
+    	z-index: 2000000;
+
+	}
+	#imprimir_productos_agregados
+	{
+		.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate
+		{
+			position: relative !important;
+			top: 170px !important;
+		}
+	}
+}
+
+#anular_venta_form
+{
+    position: relative;
+    margin: 0 auto;
+    width: 900px;
+    top: 30px;
+
+	#label_mensaje
+	{
+		position: relative;
+	    text-align: center;
+	    top: 80px;
+	    font-weight: bold;
+	    font-size: 20px;
+	}
+
+    #anular_venta_tabla
+    {
+    	position: relative;
+    	top: 100px;
+    }
+
+    .boton_anular_venta
+    {
+    	width: 100px;
+    	font-size: 14px;
+    	color: white;
+    	background-color: #4da6ff;
+    	padding: 5px;
+    	cursor: pointer;
+    	&:hover
+    	{
+    		background-color: gray;
+    	}
+    }
+
+    .mensaje_anular_venta
+    {
+    	position: relative;
+    	margin: 0 auto;
+    	width: 500px;
+    	padding: 10px 0px;
+    	color: white;
+    	font-weight: bold;
+    	top: 70px;
+    	text-align: center;
+    	font-size: 18px;
+    	display: none;
+    }
+
+    #mensaje_anular_venta
+    {
+	    position: relative;
+	    text-align: center;
+	    top: 100px;
+		font-size: 18px;
+    	font-weight: bold;
+    }
+
+	.cantidad
+	{
+		width: 50px;
+	}
+
+	#tabla_ventas_registradas_anular
+	{
+    	position: relative;
+    	top: 170px;
+    	margin: 0 auto;
+    	z-index: 2000000;
+	}
+	#imprimir_productos_anulados, #impresion_tabla_crear_venta
+	{
+		.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate
+		{
+			position: relative !important;
+			top: 170px !important;
+		}
+
+		#anular_venta_submit
+		{
+			background-color: orange;
+		    color: white;
+		    width: 260px;
+		    padding: 10px;
+		    border: 0;
+		    cursor: pointer;
+			position: relative;
+		    top: 170px;
+		    left: 317px;
+		    font-weight: bold;
+
+		    &:hover
+		    {
+		    	background-color: gray;
+		    }
+		}
+
+	}
+}
+
+#historico_ventas_form
+{
+    position: relative;
+    margin: 0 auto;
+    width: 900px;
+    top: 30px;
+
+	#label_mensaje
+	{
+		position: relative;
+	    text-align: center;
+	    top: 80px;
+	    font-weight: bold;
+	    font-size: 20px;
+	}
+
+    #historico_ventas_tabla
+    {
+    	position: relative;
+    	top: 170px;
+    }
+
+    #tabla_buscar
+    {
+    	position: relative;
+    	top: 130px;
+    	white-space: nowrap;
+    	z-index: 200000;
+    	line-height: 0;
+    	font-size: 12px;
+    	font-weight: bold;
+    	#buscar_filtros
+    	{
+	    	width: 100px;
+	    	border: 0;
+	    	font-size: 14px;
+	    	color: white;
+	    	background-color: #4da6ff;
+	    	padding: 5px;
+	    	cursor: pointer;
+	    	&:hover
+	    	{
+	    		background-color: gray;
+	    	}
+    	}
+    }
+
+    .boton_historico_ventas
+    {
+    	width: 100px;
+    	font-size: 14px;
+    	color: white;
+    	background-color: #4da6ff;
+    	padding: 5px;
+    	cursor: pointer;
+    	&:hover
+    	{
+    		background-color: gray;
+    	}
+    }
+
+    #mensaje_historico_ventas
+    {
+	    position: relative;
+	    text-align: center;
+	    top: 100px;
+		font-size: 18px;
+    	font-weight: bold;
+    }
+
+	.cantidad
+	{
+		width: 50px;
+	}
+
+	#tabla_historico_ventas_registradas
+	{
+    	position: relative;
+    	top: 170px;
+    	margin: 0 auto;
+    	z-index: 2000000;
+	}
+
+	#imprimir_historico_ventas, #impresion_tabla_historico_ventas
+	{
+		.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate, .dataTables
+		{
+			position: relative !important;
+			top: 170px !important;
+		}
+	}
+}

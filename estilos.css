@@ -1,0 +1,966 @@
+.registro_envio, .envios, .vendedores, #eliminar_regresar, #modificar_regresar, #consultar_regresar,
+#label_mensaje, .registro_vendedor, #modificar_regresar_vendedor, #eliminar_regresar_vendedor,
+#consultar_regresar_vendedor, .productos, #anadir_regresar_producto, #modificar_regresar_producto,
+#eliminar_regresar_producto, #consultar_regresar_producto, .stock, #consultar_regresar_stock,
+#modificar_regresar_stock, .ventas, #crear_venta_regresar, #anular_venta_regresar, #historico_ventas_regresar, #regresar_historico {
+  display: none; }
+
+.correcto {
+  background-color: #4da6ff; }
+
+.incorrecto {
+  background-color: #ff0000; }
+
+.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate {
+  position: relative;
+  top: 100px; }
+
+.paginate_button.current {
+  background-color: white !important;
+  background: none !important; }
+
+table {
+  width: 800px; }
+  table tr {
+    height: 50px; }
+  table td {
+    padding: 5px; }
+  table .encabezado {
+    background-color: #0066cc;
+    color: white;
+    font-weight: bold; }
+  table .encabezado_rojo {
+    background-color: #ff0000;
+    color: white;
+    font-weight: bold; }
+  table .azul {
+    background-color: #b3d9ff !important; }
+  table .blanco {
+    background-color: white !important; }
+  table .ancho {
+    width: 30px;
+    text-align: center; }
+  table .anchofecha {
+    width: 150px; }
+
+#menu {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  top: 20px; }
+  #menu #envios, #menu #productos, #menu #stock, #menu #vendedores, #menu #ventas {
+    padding: 10px;
+    width: 120px;
+    display: inline-block;
+    margin: 0 auto;
+    top: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer; }
+    #menu #envios:hover, #menu #productos:hover, #menu #stock:hover, #menu #vendedores:hover, #menu #ventas:hover {
+      background-color: gray;
+      -webkit-transition: 0.5s all;
+      -o-transition: 0.5s all;
+      transition: 0.5s all; }
+  #menu #envios {
+    background-color: #0000cc; }
+  #menu #productos {
+    background-color: #ffc34d; }
+  #menu #stock {
+    background-color: #558000; }
+  #menu #vendedores {
+    background-color: #cc6600; }
+  #menu #ventas {
+    background-color: #cccc00; }
+
+#anular_venta {
+  top: 145px; }
+
+.boton_opciones {
+  position: relative;
+  width: 200px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer; }
+
+#crear_regresar, #eliminar_regresar, #modificar_regresar, #consultar_regresar, #crear_regresar_vendedor,
+#modificar_regresar_vendedor, #eliminar_regresar_vendedor, #consultar_regresar_vendedor, #anadir_regresar_producto,
+#modificar_regresar_producto, #eliminar_regresar_producto, #consultar_regresar_producto, #consultar_regresar_stock,
+#modificar_regresar_stock, #crear_venta_regresar, #anular_venta_regresar, #historico_ventas_regresar, #regresar_historico {
+  position: relative;
+  background-color: #3399ff;
+  top: 180px;
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 200000;
+  margin-bottom: 150px; }
+  #crear_regresar:hover, #eliminar_regresar:hover, #modificar_regresar:hover, #consultar_regresar:hover, #crear_regresar_vendedor:hover,
+  #modificar_regresar_vendedor:hover, #eliminar_regresar_vendedor:hover, #consultar_regresar_vendedor:hover, #anadir_regresar_producto:hover,
+  #modificar_regresar_producto:hover, #eliminar_regresar_producto:hover, #consultar_regresar_producto:hover, #consultar_regresar_stock:hover,
+  #modificar_regresar_stock:hover, #crear_venta_regresar:hover, #anular_venta_regresar:hover, #historico_ventas_regresar:hover, #regresar_historico:hover {
+    background-color: gray; }
+
+.crear {
+  background-color: blue;
+  top: 100px; }
+  .crear:hover {
+    background-color: gray; }
+
+.modificar {
+  background-color: orange;
+  top: 130px; }
+  .modificar:hover {
+    background-color: gray; }
+
+.eliminar {
+  background-color: red;
+  top: 160px; }
+  .eliminar:hover {
+    background-color: gray; }
+
+.consultar {
+  background-color: cyan;
+  top: 190px; }
+  .consultar:hover {
+    background-color: gray; }
+
+.generar {
+  background-color: #558000;
+  top: 220px; }
+  .generar:hover {
+    background-color: gray; }
+
+.generar_img {
+  background-color: #558000;
+  top: 250px; }
+  .generar_img:hover {
+    background-color: gray; }
+
+#eliminar_envios {
+  position: relative;
+  background-color: red;
+  top: 160px;
+  left: 285px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0; }
+  #eliminar_envios:hover {
+    background-color: gray; }
+
+#modificar_envios {
+  position: relative;
+  background-color: orange;
+  top: 160px;
+  left: 285px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0; }
+  #modificar_envios:hover {
+    background-color: gray; }
+
+#crear_form {
+  position: relative;
+  margin: 0 auto;
+  width: 500px; }
+  #crear_form .mensaje_crear_registro {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px 0px;
+    color: white;
+    font-weight: bold;
+    top: 70px;
+    text-align: center;
+    font-size: 18px;
+    display: none; }
+  #crear_form #label_mensaje_registro {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #crear_form #label_crear_registro {
+    position: relative;
+    top: 95px;
+    left: 50px;
+    font-weight: bold; }
+  #crear_form #label_descripcion_registro {
+    position: relative;
+    top: 125px;
+    left: 50px;
+    font-weight: bold; }
+  #crear_form #crear_registro {
+    position: relative;
+    background-color: blue;
+    top: 150px;
+    width: 225px;
+    height: 45px;
+    border: 0;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer; }
+    #crear_form #crear_registro:hover {
+      background-color: gray; }
+  #crear_form #fecha_registro {
+    position: relative;
+    margin: 0 auto;
+    top: 100px;
+    width: 400px;
+    right: 0; }
+  #crear_form #descripcion_registro {
+    position: relative;
+    margin: 0 auto;
+    top: 130px;
+    width: 400px;
+    height: 200px; }
+
+#modificar_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px; }
+  #modificar_form .mensaje_modificar_envio {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px 0px;
+    color: white;
+    font-weight: bold;
+    top: 70px;
+    text-align: center;
+    font-size: 18px;
+    display: none; }
+  #modificar_form #modificar_envio {
+    position: relative;
+    top: 100px; }
+  #modificar_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+
+#eliminar_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px; }
+  #eliminar_form .mensaje_eliminar_envio {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px 0px;
+    color: white;
+    font-weight: bold;
+    top: 70px;
+    text-align: center;
+    font-size: 18px;
+    display: none; }
+  #eliminar_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #eliminar_form #eliminar_envio {
+    position: relative;
+    top: 100px; }
+
+#consultar_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px; }
+  #consultar_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #consultar_form #consultar_envio {
+    position: relative;
+    top: 100px; }
+
+.vendedores {
+  width: 300px !important; }
+
+#crear_vendedor_form {
+  position: relative;
+  margin: 0 auto;
+  width: 500px; }
+  #crear_vendedor_form .mensaje_crear_registro_vendedor {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px 0px;
+    color: white;
+    font-weight: bold;
+    top: 70px;
+    text-align: center;
+    font-size: 18px;
+    display: none; }
+  #crear_vendedor_form #label_mensaje_registro {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #crear_vendedor_form .registro_vendedor {
+    position: relative;
+    top: 100px;
+    margin: 0 auto;
+    font-size: 17px;
+    width: 500px;
+    height: 40px;
+    line-height: 48px;
+    font-weight: bold; }
+  #crear_vendedor_form #crear_registro_vendedor {
+    position: relative;
+    background-color: blue;
+    top: 150px;
+    width: 418px;
+    height: 55px;
+    border: 0;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer; }
+    #crear_vendedor_form #crear_registro_vendedor:hover {
+      background-color: gray; }
+  #crear_vendedor_form #crear_regresar_vendedor {
+    position: relative !important;
+    top: 170px !important;
+    width: 400px !important; }
+
+#modificar_vendedor_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px; }
+  #modificar_vendedor_form .mensaje_modificar_vendedor {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px 0px;
+    color: white;
+    font-weight: bold;
+    top: 70px;
+    text-align: center;
+    font-size: 18px;
+    display: none; }
+  #modificar_vendedor_form #modificar_vendedor_tabla {
+    position: relative;
+    top: 100px; }
+  #modificar_vendedor_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #modificar_vendedor_form #modificar_vendedor_submit {
+    position: relative;
+    background-color: orange;
+    top: 160px;
+    left: 285px;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 0; }
+    #modificar_vendedor_form #modificar_vendedor_submit:hover {
+      background-color: gray; }
+
+#eliminar_vendedor_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px; }
+  #eliminar_vendedor_form .mensaje_eliminar_vendedor {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px 0px;
+    color: white;
+    font-weight: bold;
+    top: 70px;
+    text-align: center;
+    font-size: 18px;
+    display: none; }
+  #eliminar_vendedor_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #eliminar_vendedor_form #eliminar_vendedor_tabla {
+    position: relative;
+    top: 100px; }
+  #eliminar_vendedor_form #eliminar_vendedor_submit {
+    position: relative;
+    background-color: red;
+    top: 160px;
+    left: 285px;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 0; }
+    #eliminar_vendedor_form #eliminar_vendedor_submit:hover {
+      background-color: gray; }
+
+#consultar_vendedor_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px; }
+  #consultar_vendedor_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #consultar_vendedor_form #consultar_vendedor_tabla {
+    position: relative;
+    top: 100px; }
+
+.productos {
+  width: 500px !important; }
+
+#anadir_producto_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px;
+  top: 30px; }
+  #anadir_producto_form .mensaje_anadir_producto {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px 0px;
+    color: white;
+    font-weight: bold;
+    top: 70px;
+    text-align: center;
+    font-size: 18px;
+    display: none; }
+  #anadir_producto_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #anadir_producto_form #anadir_producto_tabla {
+    position: relative;
+    top: 100px; }
+  #anadir_producto_form .boton_anadir_producto {
+    width: 100px;
+    font-size: 14px;
+    color: white;
+    background-color: #4da6ff;
+    padding: 5px;
+    cursor: pointer; }
+    #anadir_producto_form .boton_anadir_producto:hover {
+      background-color: gray; }
+  #anadir_producto_form #mensaje_anadir {
+    position: relative;
+    text-align: center;
+    top: 100px;
+    font-size: 18px;
+    font-weight: bold; }
+  #anadir_producto_form #tabla_anadir_productos {
+    position: relative;
+    top: 120px;
+    width: 300px !important;
+    margin: 0 auto;
+    z-index: 200000000; }
+    #anadir_producto_form #tabla_anadir_productos tr {
+      height: 0; }
+      #anadir_producto_form #tabla_anadir_productos tr td {
+        padding: 2px;
+        font-size: 14px;
+        font-weight: bold; }
+        #anadir_producto_form #tabla_anadir_productos tr td #cantidad {
+          width: 50px; }
+        #anadir_producto_form #tabla_anadir_productos tr td #anadir_producto_submit {
+          background-color: blue;
+          color: white;
+          width: 100px;
+          border: 0;
+          cursor: pointer; }
+  #anadir_producto_form #tabla_productos_envios_registrados {
+    position: relative;
+    top: 170px;
+    margin: 0 auto;
+    z-index: 2000000; }
+  #anadir_producto_form #imprimir_productos_agregados .dataTables_length, #anadir_producto_form #imprimir_productos_agregados .dataTables_filter, #anadir_producto_form #imprimir_productos_agregados .dataTables_info, #anadir_producto_form #imprimir_productos_agregados .dataTables_paginate {
+    position: relative !important;
+    top: 170px !important; }
+
+#modificar_productos_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px;
+  top: 30px; }
+  #modificar_productos_form .mensaje_modificar_producto {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px 0px;
+    color: white;
+    font-weight: bold;
+    top: 70px;
+    text-align: center;
+    font-size: 18px;
+    display: none; }
+  #modificar_productos_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #modificar_productos_form #modificar_producto_tabla {
+    position: relative;
+    top: 100px; }
+  #modificar_productos_form .boton_modificar_producto {
+    width: 100px;
+    font-size: 14px;
+    color: white;
+    background-color: #4da6ff;
+    padding: 5px;
+    cursor: pointer; }
+    #modificar_productos_form .boton_modificar_producto:hover {
+      background-color: gray; }
+  #modificar_productos_form #mensaje_modificar {
+    position: relative;
+    text-align: center;
+    top: 100px;
+    font-size: 18px;
+    font-weight: bold; }
+  #modificar_productos_form .cantidad {
+    width: 50px; }
+  #modificar_productos_form #tabla_productos_envios_registrados_modificar {
+    position: relative;
+    top: 170px;
+    margin: 0 auto;
+    z-index: 2000000; }
+  #modificar_productos_form #imprimir_productos_modificados #modificar_producto_submit {
+    background-color: blue;
+    color: white;
+    width: 160px;
+    padding: 10px;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    top: 170px;
+    left: 362px;
+    font-weight: bold; }
+  #modificar_productos_form #imprimir_productos_modificados .dataTables_length, #modificar_productos_form #imprimir_productos_modificados .dataTables_filter, #modificar_productos_form #imprimir_productos_modificados .dataTables_info, #modificar_productos_form #imprimir_productos_modificados .dataTables_paginate {
+    position: relative !important;
+    top: 170px !important; }
+
+#eliminar_productos_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px;
+  top: 30px; }
+  #eliminar_productos_form .mensaje_eliminar_producto {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px 0px;
+    color: white;
+    font-weight: bold;
+    top: 70px;
+    text-align: center;
+    font-size: 18px;
+    display: none; }
+  #eliminar_productos_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #eliminar_productos_form #eliminar_producto_tabla {
+    position: relative;
+    top: 100px; }
+  #eliminar_productos_form .boton_eliminar_producto {
+    width: 100px;
+    font-size: 14px;
+    color: white;
+    background-color: #4da6ff;
+    padding: 5px;
+    cursor: pointer; }
+    #eliminar_productos_form .boton_eliminar_producto:hover {
+      background-color: gray; }
+  #eliminar_productos_form #mensaje_eliminar {
+    position: relative;
+    text-align: center;
+    top: 100px;
+    font-size: 18px;
+    font-weight: bold; }
+  #eliminar_productos_form .cantidad {
+    width: 50px; }
+  #eliminar_productos_form #tabla_productos_envios_registrados_eliminar {
+    position: relative;
+    top: 170px;
+    margin: 0 auto;
+    z-index: 2000000; }
+  #eliminar_productos_form #imprimir_productos_eliminados .dataTables_length, #eliminar_productos_form #imprimir_productos_eliminados .dataTables_filter, #eliminar_productos_form #imprimir_productos_eliminados .dataTables_info, #eliminar_productos_form #imprimir_productos_eliminados .dataTables_paginate, #eliminar_productos_form #impresion_tabla_eliminar_producto .dataTables_length, #eliminar_productos_form #impresion_tabla_eliminar_producto .dataTables_filter, #eliminar_productos_form #impresion_tabla_eliminar_producto .dataTables_info, #eliminar_productos_form #impresion_tabla_eliminar_producto .dataTables_paginate {
+    position: relative !important;
+    top: 170px !important; }
+  #eliminar_productos_form #imprimir_productos_eliminados #eliminar_producto_submit, #eliminar_productos_form #impresion_tabla_eliminar_producto #eliminar_producto_submit {
+    background-color: red;
+    color: white;
+    width: 160px;
+    padding: 5px;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    top: 170px;
+    left: 362px;
+    font-weight: bold; }
+    #eliminar_productos_form #imprimir_productos_eliminados #eliminar_producto_submit:hover, #eliminar_productos_form #impresion_tabla_eliminar_producto #eliminar_producto_submit:hover {
+      background-color: gray; }
+
+#consultar_productos_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px;
+  top: 30px; }
+  #consultar_productos_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #consultar_productos_form #consultar_producto_tabla {
+    position: relative;
+    top: 100px; }
+  #consultar_productos_form .boton_consultar_producto {
+    width: 100px;
+    font-size: 14px;
+    color: white;
+    background-color: #4da6ff;
+    padding: 5px;
+    cursor: pointer; }
+    #consultar_productos_form .boton_consultar_producto:hover {
+      background-color: gray; }
+  #consultar_productos_form #mensaje_consultar {
+    position: relative;
+    text-align: center;
+    top: 100px;
+    font-size: 18px;
+    font-weight: bold; }
+  #consultar_productos_form .cantidad {
+    width: 50px; }
+  #consultar_productos_form #tabla_productos_envios_registrados_consultar {
+    position: relative;
+    top: 170px;
+    margin: 0 auto;
+    z-index: 2000000; }
+  #consultar_productos_form #imprimir_productos_consultados .dataTables_length, #consultar_productos_form #imprimir_productos_consultados .dataTables_filter, #consultar_productos_form #imprimir_productos_consultados .dataTables_info, #consultar_productos_form #imprimir_productos_consultados .dataTables_paginate, #consultar_productos_form #impresion_tabla_consultar_producto .dataTables_length, #consultar_productos_form #impresion_tabla_consultar_producto .dataTables_filter, #consultar_productos_form #impresion_tabla_consultar_producto .dataTables_info, #consultar_productos_form #impresion_tabla_consultar_producto .dataTables_paginate {
+    position: relative !important;
+    top: 170px !important; }
+  #consultar_productos_form #imprimir_productos_consultados #consultar_producto_submit, #consultar_productos_form #impresion_tabla_consultar_producto #consultar_producto_submit {
+    background-color: red;
+    color: white;
+    width: 160px;
+    padding: 5px;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    top: 170px;
+    left: 362px;
+    font-weight: bold; }
+    #consultar_productos_form #imprimir_productos_consultados #consultar_producto_submit:hover, #consultar_productos_form #impresion_tabla_consultar_producto #consultar_producto_submit:hover {
+      background-color: gray; }
+
+.stock {
+  width: 300px !important; }
+
+#consultar_stock_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px; }
+  #consultar_stock_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #consultar_stock_form #consultar_stock_tabla {
+    position: relative;
+    top: 100px; }
+
+#modificar_stock_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px; }
+  #modificar_stock_form .mensaje_modificar_stock {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px 0px;
+    color: white;
+    font-weight: bold;
+    top: 70px;
+    text-align: center;
+    font-size: 18px;
+    display: none; }
+  #modificar_stock_form #modificar_stock_tabla {
+    position: relative;
+    top: 100px; }
+    #modificar_stock_form #modificar_stock_tabla .ancho_stock {
+      width: 100px !important; }
+    #modificar_stock_form #modificar_stock_tabla .ancho_stock_full {
+      width: 450px !important; }
+  #modificar_stock_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #modificar_stock_form #modificar_stock_submit {
+    position: relative;
+    background-color: orange;
+    top: 160px;
+    left: 285px;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 0; }
+    #modificar_stock_form #modificar_stock_submit:hover {
+      background-color: gray; }
+
+#crear_venta_form {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  top: 30px; }
+  #crear_venta_form .mensaje_crear_venta {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px 0px;
+    color: white;
+    font-weight: bold;
+    top: 70px;
+    text-align: center;
+    font-size: 18px;
+    display: none; }
+  #crear_venta_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #crear_venta_form #crear_venta_tabla {
+    position: relative;
+    top: 100px; }
+  #crear_venta_form .boton_crear_venta {
+    width: 100px;
+    font-size: 14px;
+    color: white;
+    background-color: #4da6ff;
+    padding: 5px;
+    cursor: pointer; }
+    #crear_venta_form .boton_crear_venta:hover {
+      background-color: gray; }
+  #crear_venta_form #mensaje_crear_venta {
+    position: relative;
+    text-align: center;
+    top: 100px;
+    font-size: 18px;
+    font-weight: bold; }
+  #crear_venta_form #tabla_crear_ventas {
+    position: relative;
+    top: 120px;
+    width: 300px !important;
+    margin: 0 auto;
+    z-index: 200000000; }
+    #crear_venta_form #tabla_crear_ventas tr {
+      height: 0; }
+      #crear_venta_form #tabla_crear_ventas tr td {
+        padding: 2px;
+        font-size: 14px;
+        font-weight: bold; }
+        #crear_venta_form #tabla_crear_ventas tr td #cantidad {
+          width: 50px; }
+        #crear_venta_form #tabla_crear_ventas tr td #crear_venta_submit {
+          background-color: blue;
+          color: white;
+          width: 100px;
+          border: 0;
+          cursor: pointer; }
+  #crear_venta_form #boton_crear_venta {
+    position: relative;
+    top: 164px;
+    left: 547px;
+    background-color: blue;
+    color: white;
+    width: 100px;
+    padding: 10px;
+    border: 0;
+    cursor: pointer; }
+  #crear_venta_form #tabla_productos_registrados {
+    position: relative;
+    top: 170px;
+    margin: 0 auto;
+    z-index: 2000000; }
+  #crear_venta_form #imprimir_productos_agregados .dataTables_length, #crear_venta_form #imprimir_productos_agregados .dataTables_filter, #crear_venta_form #imprimir_productos_agregados .dataTables_info, #crear_venta_form #imprimir_productos_agregados .dataTables_paginate {
+    position: relative !important;
+    top: 170px !important; }
+
+#anular_venta_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px;
+  top: 30px; }
+  #anular_venta_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #anular_venta_form #anular_venta_tabla {
+    position: relative;
+    top: 100px; }
+  #anular_venta_form .boton_anular_venta {
+    width: 100px;
+    font-size: 14px;
+    color: white;
+    background-color: #4da6ff;
+    padding: 5px;
+    cursor: pointer; }
+    #anular_venta_form .boton_anular_venta:hover {
+      background-color: gray; }
+  #anular_venta_form .mensaje_anular_venta {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    padding: 10px 0px;
+    color: white;
+    font-weight: bold;
+    top: 70px;
+    text-align: center;
+    font-size: 18px;
+    display: none; }
+  #anular_venta_form #mensaje_anular_venta {
+    position: relative;
+    text-align: center;
+    top: 100px;
+    font-size: 18px;
+    font-weight: bold; }
+  #anular_venta_form .cantidad {
+    width: 50px; }
+  #anular_venta_form #tabla_ventas_registradas_anular {
+    position: relative;
+    top: 170px;
+    margin: 0 auto;
+    z-index: 2000000; }
+  #anular_venta_form #imprimir_productos_anulados .dataTables_length, #anular_venta_form #imprimir_productos_anulados .dataTables_filter, #anular_venta_form #imprimir_productos_anulados .dataTables_info, #anular_venta_form #imprimir_productos_anulados .dataTables_paginate, #anular_venta_form #impresion_tabla_crear_venta .dataTables_length, #anular_venta_form #impresion_tabla_crear_venta .dataTables_filter, #anular_venta_form #impresion_tabla_crear_venta .dataTables_info, #anular_venta_form #impresion_tabla_crear_venta .dataTables_paginate {
+    position: relative !important;
+    top: 170px !important; }
+  #anular_venta_form #imprimir_productos_anulados #anular_venta_submit, #anular_venta_form #impresion_tabla_crear_venta #anular_venta_submit {
+    background-color: orange;
+    color: white;
+    width: 260px;
+    padding: 10px;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    top: 170px;
+    left: 317px;
+    font-weight: bold; }
+    #anular_venta_form #imprimir_productos_anulados #anular_venta_submit:hover, #anular_venta_form #impresion_tabla_crear_venta #anular_venta_submit:hover {
+      background-color: gray; }
+
+#historico_ventas_form {
+  position: relative;
+  margin: 0 auto;
+  width: 900px;
+  top: 30px; }
+  #historico_ventas_form #label_mensaje {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    font-weight: bold;
+    font-size: 20px; }
+  #historico_ventas_form #historico_ventas_tabla {
+    position: relative;
+    top: 170px; }
+  #historico_ventas_form #tabla_buscar {
+    position: relative;
+    top: 130px;
+    white-space: nowrap;
+    z-index: 200000;
+    line-height: 0;
+    font-size: 12px;
+    font-weight: bold; }
+    #historico_ventas_form #tabla_buscar #buscar_filtros {
+      width: 100px;
+      border: 0;
+      font-size: 14px;
+      color: white;
+      background-color: #4da6ff;
+      padding: 5px;
+      cursor: pointer; }
+      #historico_ventas_form #tabla_buscar #buscar_filtros:hover {
+        background-color: gray; }
+  #historico_ventas_form .boton_historico_ventas {
+    width: 100px;
+    font-size: 14px;
+    color: white;
+    background-color: #4da6ff;
+    padding: 5px;
+    cursor: pointer; }
+    #historico_ventas_form .boton_historico_ventas:hover {
+      background-color: gray; }
+  #historico_ventas_form #mensaje_historico_ventas {
+    position: relative;
+    text-align: center;
+    top: 100px;
+    font-size: 18px;
+    font-weight: bold; }
+  #historico_ventas_form .cantidad {
+    width: 50px; }
+  #historico_ventas_form #tabla_historico_ventas_registradas {
+    position: relative;
+    top: 170px;
+    margin: 0 auto;
+    z-index: 2000000; }
+  #historico_ventas_form #imprimir_historico_ventas .dataTables_length, #historico_ventas_form #imprimir_historico_ventas .dataTables_filter, #historico_ventas_form #imprimir_historico_ventas .dataTables_info, #historico_ventas_form #imprimir_historico_ventas .dataTables_paginate, #historico_ventas_form #imprimir_historico_ventas .dataTables, #historico_ventas_form #impresion_tabla_historico_ventas .dataTables_length, #historico_ventas_form #impresion_tabla_historico_ventas .dataTables_filter, #historico_ventas_form #impresion_tabla_historico_ventas .dataTables_info, #historico_ventas_form #impresion_tabla_historico_ventas .dataTables_paginate, #historico_ventas_form #impresion_tabla_historico_ventas .dataTables {
+    position: relative !important;
+    top: 170px !important; }

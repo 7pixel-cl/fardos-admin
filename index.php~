@@ -1,0 +1,22 @@
+<?php 
+/*
+	Plugin Name: Fardos Admin
+	Plugin URI: http://www.fardosderopapremium.com/
+	Description: Plugin para administrar los fardos de ropa existentes en el sistema
+	Author: Manuel Estevez Gonzalez
+	Version: 1.0
+	Author URI: http://www.fardosderopapremium.com/
+*/
+
+//include(ABSPATH.'/wp-admin/includes/plugin.php');
+
+$page_title = "Administración";
+$menu_title = "Fardos Admin";
+$capability = "read";
+$menu_slug = "fardos-admin/admin.php";
+$function = "";
+$icon_url = "";
+$position = "300";
+
+add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
+?>

@@ -211,6 +211,7 @@
 <form action="<?php echo plugins_url(); ?>/fardos-admin/process/historico_ventas_imprimir.php" method="post" id="historico_ventas_form">
    <input type="hidden" name="procesar_historico_ventas" id="procesar_historico_ventas" value="<?php echo plugins_url(); ?>/fardos-admin/process/historico_ventas.php">
    <span class="historico_ventas" id="label_mensaje">Histórico de Ventas Realizadas</span>
+   <span class="historico_ventas" id="label_mensaje">(Primera busqueda limitada a 100 resultados)</span>
    <div id="impresion_tabla_historico_ventas"></div>
    <div class="historico_ventas" id="historico_ventas_regresar">Regresar</div>
    <div class="historico_ventas" id="regresar_historico">Regresar Búsqueda</div>
@@ -231,6 +232,6 @@
 <script src="<?php echo plugins_url(); ?>/fardos-admin/DataTables/datatables.min.js"></script>
 <script src="<?php echo plugins_url(); ?>/fardos-admin/js/main_envios.js"></script>
 <script src="<?php echo plugins_url(); ?>/fardos-admin/js/main_vendedores.js"></script>
-<script src="<?php echo plugins_url(); ?>/fardos-admin/js/main_productos.js"></script>
-<script src="<?php echo plugins_url(); ?>/fardos-admin/js/main_stock.js"></script>
+<script src="<?php echo plugins_url(); ?>/fardos-admin/js/main_productos.js?v=1.1"></script>
+<script src="<?php echo plugins_url(); ?>/fardos-admin/js/main_stock.js?v=1.31"></script>
 <script src="<?php echo plugins_url(); ?>/fardos-admin/js/main_ventas.js"></script>

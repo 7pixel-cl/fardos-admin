@@ -28,9 +28,9 @@ class MySQL_Clase
 		
 		
 		$this->servidor = "localhost";
-		$this->usuario = "fardosde_wpnew";
-		$this->password = "ni(AX{kZMSsI";
-		$this->BaseD = "fardosde_wpnew";
+		$this->usuario = "root";
+		$this->password = "";
+		$this->BaseD = "fardos";
 
 	}
 
@@ -48,6 +48,7 @@ class MySQL_Clase
 	public function Query($query)
 	{
 		$this->total_consultas++;
+		var_dump($query);
 		$resultado = $this->conexion->query($query);
 		print_r($resultado, true);
 		

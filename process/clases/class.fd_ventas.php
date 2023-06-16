@@ -81,13 +81,18 @@ class fd_ventas
 
 	function Extraer_Ventas_Cerradas($filtros)
 	{
+		//echo "Filtros: $filtros";
 		$this->BD->Conectar();
-		$consulta="SELECT venta.ID ID_VENTA, vendedor.NOMBRES NOMBRES, vendedor.APELLIDOS APELLIDOS, vendedor.TELEFONO TELEFONO, vendedor.EMAIL EMAIL, venta.FECHA FECHA
-				   FROM fd_ventas venta, fd_vendedores vendedor
-				   WHERE venta.ID_VENDEDOR = vendedor.ID AND venta.VENTA_ELIMINADA = 0 AND venta.VENTA_CERRADA = 1 $filtros";
+		$consulta = "SELECT venta.ID ID_VENTA, vendedor.NOMBRES NOMBRES, vendedor.APELLIDOS APELLIDOS, vendedor.TELEFONO TELEFONO, vendedor.EMAIL EMAIL, venta.FECHA FECHA
+					 FROM fd_ventas venta
+					 JOIN fd_vendedores vendedor ON venta.ID_VENDEDOR = vendedor.ID
+					 WHERE venta.VENTA_ELIMINADA = 0 AND venta.VENTA_CERRADA = 1 $filtros
+					 ORDER BY venta.FECHA DESC
+					 LIMIT 100";
+		var_dump($consulta);
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
-		
+		// var_dump($res);
 		return $res;
 	}
 

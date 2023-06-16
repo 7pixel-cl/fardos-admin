@@ -12,8 +12,17 @@ class fd_stock
 	function Extraer_Productos_Stock_WP()
 	{
 		$this->BD->Conectar();
-		$consulta="SELECT ID, post_title NOMBRE_PRODUCTO FROM wp_posts WHERE post_type = 'post' ORDER BY post_title";
+		// $consulta="SELECT ID, post_title NOMBRE_PRODUCTO FROM wp_posts WHERE post_type = 'post' ORDER BY post_title";
+		$consulta="SELECT p.ID, p.post_title, p.post_content, p.post_excerpt, p.post_status, p.post_type, p.post_date, p.post_modified, pm.meta_value AS _regular_price, pm2.meta_value AS _sale_price
+		FROM wp_posts p
+		LEFT JOIN wp_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = '_regular_price'
+		LEFT JOIN wp_postmeta pm2 ON p.ID = pm2.post_id AND pm2.meta_key = '_sale_price'
+		WHERE p.post_type = 'product'
+		AND p.post_status = 'publish'
+		ORDER BY p.post_title";
+		var_dump($consulta);
 		$res = $this->BD->Query($consulta) or die(mysql_error());
+		var_dump($res);
 		$this->BD->Desconectar();
 		
 		return $res;
@@ -35,16 +44,21 @@ class fd_stock
 	function Extraer_ID_EMPRESA($id_wp_posts)
 	{
 		$this->BD->Conectar();
-		$consulta="SELECT ID_PRODUCTO_EMPRESA FROM fd_stock WHERE ID_WP_POSTS = $id_wp_posts";
+		$consulta = "SELECT ID_PRODUCTO_EMPRESA FROM fd_stock WHERE ID_WP_POSTS = $id_wp_posts";
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
-
+	
 		$res = $res->fetch_assoc();
-		$res = $res["ID_PRODUCTO_EMPRESA"];
-
+		if (isset($res["ID_PRODUCTO_EMPRESA"]) && $res["ID_PRODUCTO_EMPRESA"] !== null) {
+			$res = $res["ID_PRODUCTO_EMPRESA"];
+		} else {
+			// Handle the error or set a default value
+			$res = 0; // Default value
+			// Or: throw new Exception("Invalid ID_PRODUCTO_EMPRESA value"); // Error message
+		}
+	
 		return $res;
 	}
-
 	function Extraer_Precio_Producto($id_wp)
 	{
 		$this->BD->Conectar();
@@ -139,7 +153,12 @@ class fd_stock
 	function Extraer_Nombre_Producto($id_wp)
 	{
 		$this->BD->Conectar();
-		$consulta="SELECT ID, post_title NOMBRE_PRODUCTO FROM wp_posts WHERE post_type = 'post' AND ID = $id_wp";
+		$consulta="SELECT p.ID, p.post_title, p.post_content, p.post_excerpt, p.post_status, p.post_type, p.post_date, p.post_modified, pm.meta_value AS _regular_price, pm2.meta_value AS _sale_price
+		FROM wp_posts p
+		LEFT JOIN wp_postmeta pm ON p.ID = pm.post_id AND pm.meta_key = '_regular_price'
+		LEFT JOIN wp_postmeta pm2 ON p.ID = pm2.post_id AND pm2.meta_key = '_sale_price'
+		WHERE p.post_type = 'product'
+		AND ID = $id_wp";
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
 
@@ -211,6 +230,9 @@ class fd_stock
 
 	function Modificar_Cantidad_Producto($id_wp, $cantidad_fardos)
 	{
+		var_dump($id_wp);
+		var_dump($cantidad_fardos);
+		die();
 		$this->BD->Conectar();
 		$consulta="UPDATE wp_postmeta SET meta_value = $cantidad_fardos WHERE meta_key = 'qty' AND post_id = $id_wp";
 		$res = $this->BD->Query($consulta) or die(mysql_error());

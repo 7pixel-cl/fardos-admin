@@ -97,7 +97,7 @@
 			$id_wp = $obj_fd_stock->Extraer_ID_WP($codigo_barras);
 			$res = $obj_fd_stock->Extraer_Nombre_Producto($id_wp);
 			$res = $res->fetch_assoc();
-			$nombre_producto = $res["NOMBRE_PRODUCTO"];
+			$nombre_producto = $res["post_title"];
 
 			if($nombre_producto)
 			{

@@ -1,7 +1,6 @@
 <?php 
 	//include('../../../themes/shopperpress/functions.php');
 	include('../../../plugins/fardos-admin/process/clases.php');
-
 ?>
 
 	<table class="historico_ventas" id="tabla_buscar">
@@ -26,14 +25,14 @@ if(isset($_POST["vendedor_buscar"]))
 	$fecha_inicio = $_POST["fecha_inicio"];
 	$fecha_fin = $_POST["fecha_fin"];
 	$mes_buscar = $_POST["mes_buscar"];
-        $id_venta_buscar = $_POST["id_venta_buscar"];
+    $id_venta_buscar = $_POST["id_venta_buscar"];
 }
 ?>
 			<td><input type="text" name="vendedor_buscar" id="vendedor_buscar" placeholder="Vendedor..." value="<?php echo $vendedor_buscar; ?>"></td>
 			<td><input type="date" name="fecha_inicio" id="fecha_inicio" placeholder="Fecha Inicio..." value="<?php echo $fecha_inicio; ?>"></td>
 			<td><input type="date" name="fecha_fin" id="fecha_fin" placeholder="Fecha Fin..." value="<?php echo $fecha_fin; ?>"></td>
 			<td><input type="text" name="id_venta_buscar" id="id_venta_buscar" placeholder="ID Venta." value="<?php echo $id_venta_buscar; ?>"></td>
-                        <td><input type="radio" name="mes_buscar" id="ultimos30" value="1" <?php if($mes_buscar == 1) echo "checked"; ?>> Ultimos 30 días</td>
+            <td><input type="radio" name="mes_buscar" id="ultimos30" value="1" <?php if($mes_buscar == 1) echo "checked"; ?>> Ultimos 30 días</td>
 			<td><input type="radio" name="mes_buscar" id="mes_actual" value="2" <?php if($mes_buscar == 2) echo "checked"; ?>> Mes Actual</td>
                      
 		</tr>
@@ -106,9 +105,11 @@ if(isset($_POST["vendedor_buscar"]))
 		$total_fardos = 0;
 		$total_vendido = 0;
 		$res = $obj_fd_ventas->Extraer_Ventas_Cerradas($filtros);
+
 		echo "<tbody>";
 		while($row = $res->fetch_assoc())
 		{
+
 			$id_venta 	   = $row['ID_VENTA'];
 			$nombre   	   = $row['NOMBRES']." ".$row['APELLIDOS'];
 			$fecha 		   = $row['FECHA'];
@@ -131,7 +132,8 @@ if(isset($_POST["vendedor_buscar"]))
 					echo "<td>";echo round($vendido, 0, PHP_ROUND_HALF_DOWN); echo "<textarea style='width:0; height:0;visibility:hidden;'>$vendido</textarea></td>";
 					echo "<td class='ancho'><div class='boton_historico_ventas' data-id='$id_venta' data-descripcion='$nombre FECHA: $fecha'>Seleccionar</div></td>";
 			echo "</tr>";
-
+			var_dump($row);
+			// die("products_first_ends");
 		}
 ?>
 		</tbody>

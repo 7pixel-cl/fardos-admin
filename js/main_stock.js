@@ -22,6 +22,7 @@ $(function()
 		var pet = $("#consultar_stock_form").attr("action");
 
 		var met = $("#consultar_stock_form").attr("method");
+		//console.log('Aqui 1 ');
 
 			var ajaxRequest;
 			var info = $("#consultar_stock_form").serialize();
@@ -32,18 +33,18 @@ $(function()
 	            data: info
 	        });
 
-			console.log(pet);
-			console.log(met);
+			//console.log(pet);
+			//console.log(met);
 		     ajaxRequest.done(function (response, textStatus, jqXHR){
 		     	//console.log(response);
 		     	$("#impresion_tabla_consultar_stock").html(response);
 		     	$('#consultar_stock_tabla').DataTable();
 				$(".consultar_stock, #consultar_stock_form .dataTables_length, #consultar_stock_form .dataTables_filter, #consultar_stock_form .dataTables_info, #consultar_stock_form .dataTables_paginate").addClass("activo");
-		        console.log('Submitted successfully');
+		        //console.log('Submitted successfully');
 		     });
 
 		     ajaxRequest.fail(function (){
-		       console.log('There is error while submit');
+		       //console.log('There is error while submit');
 		     });
 
 	});
@@ -69,18 +70,20 @@ $(function()
 	            data: {modificar_band:1}
 	        });
 
-			console.log(pet);
-			console.log(met);
+			//console.log(pet);
+			//console.log(met);
+		//console.log('Aqui 2 ');
+
 		     ajaxRequest.done(function (response, textStatus, jqXHR){
-		     	console.log(response);
+		     	//console.log(response);
 		     	$("#impresion_tabla_modificar_stock").html(response);
 		     	$('#modificar_stock_tabla').DataTable();
 				$(".modificar_stock, #modificar_stock_form .dataTables_length, #modificar_stock_form .dataTables_filter, #modificar_stock_form .dataTables_info, #modificar_stock_form .dataTables_paginate").addClass("activo");
-		        console.log('Submitted successfully');
+		        //console.log('Submitted successfully');
 		     });
 
 		     ajaxRequest.fail(function (){
-		       console.log('There is error while submit');
+		       //console.log('There is error while submit');
 		     });
 
 	});
@@ -95,6 +98,7 @@ $(function()
 		var pet = $("#modificar_stock_form").attr("action");
 
 		var met = $("#modificar_stock_form").attr("method");
+		//console.log('Aqui 3 ');
 
 		var allresponse = 1;
 
@@ -109,18 +113,18 @@ $(function()
 	            data: {modificar_band:0}
 	        });
 
-			console.log(pet);
-			console.log(met);
+			//console.log(pet);
+			//console.log(met);
 		     ajaxRequest.done(function (response, textStatus, jqXHR){
-		     	console.log(response);
+		     	//console.log(response);
 		     	var id_modificar_v = response.split("-");
-		     	console.log("....................");
+		     	//console.log("....................");
 
 		     	for(var i = 0; i < id_modificar_v.length-1; i++)
 		     	{
 		     		if($("#modif_id_"+id_modificar_v[i]).hasClass("modif_activo"))
 		     		{
-		     			console.log(id_modificar_v[i]);
+		     			//console.log(id_modificar_v[i]);
 
 						var ajaxRequest_modif;
 						var info = $("#modificar_stock_form").serialize();
@@ -151,18 +155,18 @@ $(function()
 							}
 
 					        ajaxRequest.done(function (response, textStatus, jqXHR){
-						     	console.log(response);
+						     	//console.log(response);
 						     	$("#impresion_tabla_modificar_stock").html(response);
 						     	$('#modificar_stock_tabla').DataTable();
 								$(".modificar_stock, #modificar_stock_form .dataTables_length, #modificar_stock_form .dataTables_filter, #modificar_stock_form .dataTables_info, #modificar_stock_form .dataTables_paginate").addClass("activo");
-						        console.log('Submitted successfully');
+						        //console.log('Submitted successfully');
 					        });
 
 					    });
 					}
 		     	}
 		     	//$("#impresion_tabla_eliminar").html(response);
-		     	console.log("....................");
+		     	//console.log("....................");
 	     		$(".mensaje_modificar_stock").fadeIn(300);
 	     		$(".mensaje_modificar_stock").addClass("activo");
 		     	if(allresponse == 1)
@@ -181,11 +185,11 @@ $(function()
 				$("#modificar_stock_form table *").removeAttr("disabled");
 				$("#modificar_stock_form table").css("opacity", "1");
 
-		        console.log('Submitted successfully');
+		        //console.log('Submitted successfully');
 		     });
 
 		     ajaxRequest.fail(function (){
-		       console.log('There is error while submit');
+		       //console.log('There is error while submit');
 		     });
 	});
 

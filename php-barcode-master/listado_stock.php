@@ -43,7 +43,7 @@
 	{
 
 		$id_wp_posts	 = $row['ID'];
-		$nombre_producto = $row['NOMBRE_PRODUCTO'];
+		$nombre_producto = $row['post_title'];
 		$num_fardos = $obj_fd_stock->Extraer_Cantidad_Producto($id_wp_posts);
 		if($num_fardos>0)
 		{

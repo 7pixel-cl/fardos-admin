@@ -33,16 +33,17 @@
 				$cantidad_fardos = $obj_fd_stock->Extraer_Cantidad_Producto($id_wp_posts);
 				// $precio_sin_iva = $obj_fd_stock->Extraer_Precio_Producto($id_wp_posts);
 				$precio_sin_iva = $row['_regular_price'];
-				if (isset($precio_con_iva) && is_numeric($precio_con_iva)) {
-					$precio_con_iva = floor($precio_con_iva);
-				} else {
-					$precio_con_iva = 0; // Default value
-				}
-				
 				if (isset($precio_sin_iva) && is_numeric($precio_sin_iva)) {
 					$precio_sin_iva = floor($precio_sin_iva);
 				} else {
 					$precio_sin_iva = 0; // Default value
+				}
+				
+				$precio_con_iva = $precio_sin_iva + $precio_sin_iva*0.19;
+				if (isset($precio_con_iva) && is_numeric($precio_con_iva)) {
+					$precio_con_iva = floor($precio_con_iva);
+				} else {
+					$precio_con_iva = 0; // Default value
 				}
 				
 				echo "<tr class='modif_activo' id='modif_id_$id'>

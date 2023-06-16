@@ -132,7 +132,7 @@ if(isset($_POST["vendedor_buscar"]))
 					echo "<td>";echo round($vendido, 0, PHP_ROUND_HALF_DOWN); echo "<textarea style='width:0; height:0;visibility:hidden;'>$vendido</textarea></td>";
 					echo "<td class='ancho'><div class='boton_historico_ventas' data-id='$id_venta' data-descripcion='$nombre FECHA: $fecha'>Seleccionar</div></td>";
 			echo "</tr>";
-			var_dump($row);
+			//var_dump($row);
 			// die("products_first_ends");
 		}
 ?>

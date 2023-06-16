@@ -23,21 +23,21 @@
 			echo "<tbody>";
 			while($row = $res->fetch_assoc())
 			{
-				var_dump($row);
+				//var_dump($row);
 				// die();
 				$id_wp_posts	 = $row['ID'];
 				$nombre_producto = $row['post_title'];
-				var_dump($id_wp_posts);
+				//var_dump($id_wp_posts);
 				//die();
 				$obj_fd_stock->Verificar_ID_WP_POST($id_wp_posts);
 		
 				
-				var_dump($id_wp_posts);
-				var_dump($obj_fd_stock->Verificar_ID_WP_POST($id_wp_posts));
+				//var_dump($id_wp_posts);
+				//var_dump($obj_fd_stock->Verificar_ID_WP_POST($id_wp_posts));
 				//die();
 				if($obj_fd_stock->Verificar_ID_WP_POST($id_wp_posts))
 				{
-					var_dump($id_wp_posts);
+					//var_dump($id_wp_posts);
 					//die();
 					$obj_fd_stock->Insertar_Producto_Stock($id_wp_posts, 0, 0);
 				}

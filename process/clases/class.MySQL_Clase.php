@@ -48,7 +48,7 @@ class MySQL_Clase
 	public function Query($query)
 	{
 		$this->total_consultas++;
-		var_dump($query);
+		//var_dump($query);
 		$resultado = $this->conexion->query($query);
 		print_r($resultado, true);
 		

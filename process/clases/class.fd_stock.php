@@ -20,9 +20,9 @@ class fd_stock
 		WHERE p.post_type = 'product'
 		AND p.post_status = 'publish'
 		ORDER BY p.post_title";
-		var_dump($consulta);
+		//var_dump($consulta);
 		$res = $this->BD->Query($consulta) or die(mysql_error());
-		var_dump($res);
+		//var_dump($res);
 		$this->BD->Desconectar();
 		
 		return $res;
@@ -230,8 +230,8 @@ class fd_stock
 
 	function Modificar_Cantidad_Producto($id_wp, $cantidad_fardos)
 	{
-		var_dump($id_wp);
-		var_dump($cantidad_fardos);
+		//var_dump($id_wp);
+		//var_dump($cantidad_fardos);
 		die();
 		$this->BD->Conectar();
 		$consulta="UPDATE wp_postmeta SET meta_value = $cantidad_fardos WHERE meta_key = 'qty' AND post_id = $id_wp";

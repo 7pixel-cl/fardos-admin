@@ -2,7 +2,7 @@
 	//include('../../../themes/shopperpress/functions.php');
 	include('../../../plugins/fardos-admin/process/clases.php');
 
-	var_dump($_POST);
+	//var_dump($_POST);
 	//die();
 	if($_POST['modificar_band'] == 1)
 	{

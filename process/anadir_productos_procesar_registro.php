@@ -4,9 +4,9 @@
 	$id_envio 		   = $_POST['id_envio'];
 	$codigo_barras 	   = $_POST['codigo_barras'];
 	$cantidad		   = $_POST['cantidad'];
-	var_dump($id_envio);
-	var_dump($codigo_barras);
-	var_dump($cantidad);
+	//var_dump($id_envio);
+	//var_dump($codigo_barras);
+	//var_dump($cantidad);
 	if($codigo_barras)
 	{
 		$id_wp_posts = $obj_fd_stock->Extraer_ID_WP($codigo_barras);

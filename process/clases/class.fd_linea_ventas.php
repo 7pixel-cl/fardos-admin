@@ -12,7 +12,7 @@ class fd_linea_ventas
 	function Extraer_Precio_Producto($id_wp)
 	{
 		$this->BD->Conectar();
-		$consulta="SELECT meta_value PRECIO FROM wp_postmeta WHERE meta_key = 'price' AND post_id = $id_wp";
+		$consulta="SELECT meta_value PRECIO FROM wp_postmeta WHERE meta_key = '_price' AND post_id = $id_wp";
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
 

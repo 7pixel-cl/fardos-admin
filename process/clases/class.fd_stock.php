@@ -62,7 +62,7 @@ class fd_stock
 	function Extraer_Precio_Producto($id_wp)
 	{
 		$this->BD->Conectar();
-		$consulta="SELECT meta_value PRECIO FROM wp_postmeta WHERE meta_key = 'price' AND post_id = $id_wp";
+		$consulta="SELECT meta_value PRECIO FROM wp_postmeta WHERE meta_key = '_price' AND post_id = $id_wp";
 		$res = $this->BD->Query($consulta) or die(mysql_error());		
 
 		$res = $res->fetch_assoc();
@@ -81,7 +81,7 @@ class fd_stock
 	function Extraer_Cantidad_Producto($id_wp)
 	{
 		$this->BD->Conectar();
-		$consulta="SELECT meta_value CANTIDAD FROM wp_postmeta WHERE meta_key = 'qty' AND post_id = $id_wp";
+		$consulta="SELECT meta_value CANTIDAD FROM wp_postmeta WHERE  meta_key ='_stock' AND post_id = $id_wp";
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
 
@@ -128,7 +128,7 @@ class fd_stock
 	function Insertar_Producto_Stock_WP($id_wp, $cantidad)
 	{
 		$this->BD->Conectar();
-		$consulta="INSERT INTO wp_postmeta(post_id, meta_key, meta_value) VALUES($id_wp, 'qty', $cantidad)";
+		$consulta="INSERT INTO wp_postmeta(post_id, meta_key, meta_value) VALUES($id_wp, '_stock', $cantidad)";
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
 
@@ -138,7 +138,7 @@ class fd_stock
 	function Verificar_Producto_Stock_WP($id_wp)
 	{
 		$this->BD->Conectar();
-		$consulta="SELECT * FROM wp_postmeta WHERE post_id = $id_wp AND meta_key = 'qty'";
+		$consulta="SELECT * FROM wp_postmeta WHERE post_id = $id_wp AND meta_key = '_stock'";
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
 
@@ -209,7 +209,7 @@ class fd_stock
 	function Aumentar_Cantidad_Producto_WP($id_wp, $cantidad_fardos)
 	{
 		$this->BD->Conectar();
-		$consulta="UPDATE wp_postmeta SET meta_value = meta_value+$cantidad_fardos WHERE meta_key = 'qty' AND post_id = $id_wp";
+		$consulta="UPDATE wp_postmeta SET meta_value = meta_value+$cantidad_fardos WHERE meta_key = '_stock' AND post_id = $id_wp";
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
 
@@ -220,7 +220,7 @@ class fd_stock
 	function Restar_Cantidad_Producto_WP($id_wp, $cantidad_fardos)
 	{
 		$this->BD->Conectar();
-		$consulta="UPDATE wp_postmeta SET meta_value = meta_value-$cantidad_fardos WHERE meta_key = 'qty' AND post_id = $id_wp";
+		$consulta="UPDATE wp_postmeta SET meta_value = meta_value-$cantidad_fardos WHERE meta_key = '_stock' AND post_id = $id_wp";
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
 
@@ -232,9 +232,11 @@ class fd_stock
 	{
 		//var_dump($id_wp);
 		//var_dump($cantidad_fardos);
-		die();
+		//die();
 		$this->BD->Conectar();
-		$consulta="UPDATE wp_postmeta SET meta_value = $cantidad_fardos WHERE meta_key = 'qty' AND post_id = $id_wp";
+		$consulta="UPDATE wp_postmeta SET meta_value = $cantidad_fardos WHERE meta_key = '_stock' AND post_id = $id_wp";
+		//var_dump($consulta);
+		//die();
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
 

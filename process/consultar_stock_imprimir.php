@@ -55,8 +55,8 @@
 					$id_producto_empresa = 0; // Default value
 					// Or: throw new Exception("Invalid ID_PRODUCTO_EMPRESA value"); // Error message
 				}
-				// $precio_sin_iva = $obj_fd_stock->Extraer_Precio_Producto($id_wp_posts);
-				$precio_sin_iva = $row['_regular_price'];
+				$precio_sin_iva = $obj_fd_stock->Extraer_Precio_Producto($id_wp_posts);
+				//$precio_sin_iva = $row['_regular_price'];
 				if (isset($precio_sin_iva) && is_numeric($precio_sin_iva)) {
 					$precio_sin_iva = floor($precio_sin_iva);
 				} else {

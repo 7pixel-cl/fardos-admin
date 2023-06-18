@@ -116,7 +116,7 @@
 				$producto = $nombre_producto;
 				$cantidad = $cantidad_fardos;
 
-				$precio_cobrado = $obj_fd_linea_ventas->Extraer_Precio_Producto($id_wp);
+				$precio_cobrado = $obj_fd_linea_ventas->Extraer_Precio_Producto($id_wp)*1.19;
 				$iva_cobrado = $precio_cobrado*0.19;
 
 				$cantidad_stock = $obj_fd_stock->Extraer_Cantidad_Producto($id_wp);

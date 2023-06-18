@@ -48,7 +48,7 @@
 		if($num_fardos>0)
 		{
 			$id_producto_empresa = $obj_fd_stock->Extraer_ID_EMPRESA($id_wp_posts);
-			$precio_sin_iva = $row['_regular_price'];
+			$precio_sin_iva = $obj_fd_stock->Extraer_Precio_Producto($id_wp_posts);
 			if (isset($precio_sin_iva) && is_numeric($precio_sin_iva)) {
 				$precio_sin_iva = floor($precio_sin_iva);
 			} else {

@@ -1,4 +1,5 @@
 <?php
+require_once( '..\..\..\..\wp-load.php' );
 
 class fd_stock
 {
@@ -196,7 +197,7 @@ class fd_stock
 		return $res;
 	}
 
-	function Modificar_Productos_Stock($id, $id_producto_empresa, $kilos)
+	function Modificar_Productos_Stock($id, $id_producto_empresa, $num_fardos, $kilos)
 	{
 		$this->BD->Conectar();
 		$consulta="UPDATE fd_stock SET ID_PRODUCTO_EMPRESA = $id_producto_empresa, KILOS_TOTALES = $kilos WHERE ID_WP_POSTS = $id";
@@ -205,6 +206,36 @@ class fd_stock
 
 		return $res;
 	}
+
+	// function Modificar_Productos_Sku($id_wp, $id_producto_empresa)
+	// {
+	// 	$this->BD->Conectar();
+	// 	$consulta="UPDATE wp_postmeta SET meta_value = $id_producto_empresa WHERE meta_key = '_sku' AND post_id = $id_wp";
+	// 	$res = $this->BD->Query($consulta) or die(mysql_error());
+	// 	$this->BD->Desconectar();
+
+	// 	return $res;
+	// }
+
+	function Modificar_Productos_Sku($id_wp, $id_producto_empresa)
+	{
+	    $this->BD->Conectar();
+
+    	// Check if the _sku meta field exists
+    	$sku = get_post_meta($id_wp, '_sku', true);
+		var_dump($sku);
+    	if ($sku) {
+ 	       // Update the _sku meta field if it exists
+        	update_post_meta($id_wp, '_sku', $id_producto_empresa);
+    	} else {
+        	// Add the _sku meta field if it doesn't exist
+        	add_post_meta($id_wp, '_sku', $id_producto_empresa);
+    	}
+
+    	$this->BD->Desconectar();
+
+    	return true;
+}
 
 	function Aumentar_Cantidad_Producto_WP($id_wp, $cantidad_fardos)
 	{

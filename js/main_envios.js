@@ -35,10 +35,10 @@ $(function()
             data: info
         });
 
-		console.log(pet);
-		console.log(met);
+		//console.log(pet);
+		//console.log(met);
 	     ajaxRequest.done(function (response, textStatus, jqXHR){
-	     	console.log(response);
+	     	//console.log(response);
 	     	$(".mensaje_crear_registro").fadeIn(300);
 	     	$(".mensaje_crear_registro").addClass("activo");
 	     	if(response == 1)
@@ -84,14 +84,14 @@ $(function()
 	            data: {modificar_band:1}
 	        });
 
-			console.log(pet);
-			console.log(met);
+			//console.log(pet);
+			//console.log(met);
 		     ajaxRequest.done(function (response, textStatus, jqXHR){
 		     	$("#impresion_tabla_modificar").html(response);
 		     	$('#modificar_envio').DataTable();
 				$(".modificar_envio, #modificar_form .dataTables_length, #modificar_form .dataTables_filter, #modificar_form .dataTables_info, #modificar_form .dataTables_paginate").addClass("activo");
 		        console.log('Submitted successfully');
-		     	console.log(response);
+		     	//console.log(response);
 
 				$(".check_enviado").click(function(){
 					console.log("check_enviado");
@@ -142,18 +142,18 @@ $(function()
 	            data: {modificar_band:0}
 	        });
 
-			console.log(pet);
-			console.log(met);
+			//console.log(pet);
+			//console.log(met);
 		     ajaxRequest.done(function (response, textStatus, jqXHR){
-		     	console.log(response);
+		     	//console.log(response);
 		     	var id_modificar_v = response.split("-");
-		     	console.log("....................");
+		     	//console.log("....................");
 
 		     	for(var i = 0; i < id_modificar_v.length-1; i++)
 		     	{
 		     		if($("#modif_id_"+id_modificar_v[i]).hasClass("modif_activo"))
 		     		{
-		     			console.log(id_modificar_v[i]);
+		     			//console.log(id_modificar_v[i]);
 						var ajaxRequest_modif;
 						var info = $("#modificar_form").serialize();
 						var pet_modif = $("#modificar_form #procesar_modificacion").val();
@@ -182,7 +182,7 @@ $(function()
 				        console.log("RECIBIDO = "+pet_modif);
 
 					    ajaxRequest_modif.done(function (response, textStatus, jqXHR){
-					    	console.log(response);
+					    	//console.log(response);
 
 							ajaxRequest= $.ajax({
 					            url: pet,
@@ -225,7 +225,7 @@ $(function()
 					}
 		     	}
 		     	//$("#impresion_tabla_eliminar").html(response);
-		     	console.log("....................");
+		     	//console.log("....................");
 
 
 	     		$(".mensaje_modificar_envio").fadeIn(300);
@@ -275,10 +275,10 @@ $(function()
 	            data: {eliminar_band:1}
 	        });
 
-			console.log(pet);
-			console.log(met);
+			//console.log(pet);
+			//console.log(met);
 		     ajaxRequest.done(function (response, textStatus, jqXHR){
-		     	console.log(response);
+		     	//console.log(response);
 		     	$("#impresion_tabla_eliminar").html(response);
 		     	$('#eliminar_envio').DataTable();
 				$(".eliminar_envio, #eliminar_form .dataTables_length, #eliminar_form .dataTables_filter, #eliminar_form .dataTables_info, #eliminar_form .dataTables_paginate").addClass("activo");
@@ -314,13 +314,13 @@ $(function()
 	            data: {eliminar_band:0}
 	        });
 
-			console.log(pet);
-			console.log(met);
+			//console.log(pet);
+			//console.log(met);
 		     ajaxRequest.done(function (response, textStatus, jqXHR){
-		     	console.log(response);
+		     	//console.log(response);
 		     	var id_eliminar = response.split("-");
 		     	var allresponse = 1;
-		     	console.log("....................");
+		     	//console.log("....................");
 		     	var confirmar_elim = confirm("Seguro desea eliminar estos envíos con todos sus productos?");
 		     	if(confirmar_elim)
 		     	for(var i = 0; i < id_eliminar.length-1; i++)
@@ -359,7 +359,7 @@ $(function()
 								}
 
 						        ajaxRequest.done(function (response, textStatus, jqXHR){
-							     	console.log(response);
+							     //	console.log(response);
 							     	$("#impresion_tabla_eliminar").html(response);
 							     	$('#eliminar_envio').DataTable();
 									$(".eliminar_envio, #eliminar_form .dataTables_length, #eliminar_form .dataTables_filter, #eliminar_form .dataTables_info, #eliminar_form .dataTables_paginate").addClass("activo");
@@ -420,10 +420,10 @@ $(function()
 	            data: info
 	        });
 
-			console.log(pet);
-			console.log(met);
+			//console.log(pet);
+			//console.log(met);
 		     ajaxRequest.done(function (response, textStatus, jqXHR){
-		     	console.log(response);
+		     	//console.log(response);
 		     	$("#impresion_tabla_consultar").html(response);
 		     	$('#consultar_envio').DataTable();
 				$(".consultar_envio, #consultar_form .dataTables_length, #consultar_form .dataTables_filter, #consultar_form .dataTables_info, #consultar_form .dataTables_paginate").addClass("activo");

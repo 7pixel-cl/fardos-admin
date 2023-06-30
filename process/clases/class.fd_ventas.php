@@ -89,7 +89,7 @@ class fd_ventas
 					 WHERE venta.VENTA_ELIMINADA = 0 AND venta.VENTA_CERRADA = 1 $filtros
 					 ORDER BY venta.FECHA DESC
 					 LIMIT 100";
-		var_dump($consulta);
+		//var_dump($consulta);
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
 		// var_dump($res);

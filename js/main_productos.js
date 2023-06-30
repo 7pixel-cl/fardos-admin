@@ -32,8 +32,8 @@ $(function()
 	            data: info
 	        });
 
-			console.log(pet);
-			console.log(met);
+			//console.log(pet);
+			//console.log(met);
 		     ajaxRequest.done(function (response, textStatus, jqXHR){
 		     	console.log(response);
 		     	$("#impresion_tabla_anadir_producto").html(response);

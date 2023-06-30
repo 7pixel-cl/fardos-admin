@@ -3,8 +3,8 @@
 	Plugin Name: Fardos Admin
 	Plugin URI: http://www.fardosderopapremium.com/
 	Description: Plugin para administrar los fardos de ropa existentes en el sistema
-	Author: Manuel Estevez Gonzalez
-	Version: 1.0
+	Author: Manuel Estevez Gonzalez - 7Pixel.cl
+	Version: 1.1
 	Author URI: http://www.fardosderopapremium.com/
 */
 

@@ -27,10 +27,17 @@ class MySQL_Clase
 		*/
 		
 		
-		$this->servidor = "localhost";
-		$this->usuario = "root";
-		$this->password = "";
-		$this->BaseD = "fardos";
+		// $this->servidor = "localhost";
+		// $this->usuario = "root";
+		// $this->password = "";
+		// $this->BaseD = "fardos";
+
+		
+		$this->servidor = "127.0.0.1";
+		$this->usuario = "uyj3qexhmsc8t";
+		$this->password = "m8t7gnb9krkt";
+		$this->BaseD = "dbsqee4gyc42kg";
+		
 
 	}
 

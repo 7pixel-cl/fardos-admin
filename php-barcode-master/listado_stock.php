@@ -43,15 +43,24 @@
 	{
 
 		$id_wp_posts	 = $row['ID'];
-		$nombre_producto = $row['NOMBRE_PRODUCTO'];
+		$nombre_producto = $row['post_title'];
 		$num_fardos = $obj_fd_stock->Extraer_Cantidad_Producto($id_wp_posts);
 		if($num_fardos>0)
 		{
 			$id_producto_empresa = $obj_fd_stock->Extraer_ID_EMPRESA($id_wp_posts);
 			$precio_sin_iva = $obj_fd_stock->Extraer_Precio_Producto($id_wp_posts);
+			if (isset($precio_sin_iva) && is_numeric($precio_sin_iva)) {
+				$precio_sin_iva = floor($precio_sin_iva);
+			} else {
+				$precio_sin_iva = 0; // Default value
+			}
+			
 			$precio_con_iva = $precio_sin_iva + $precio_sin_iva*0.19;
-			$precio_con_iva = round($precio_con_iva, 0, PHP_ROUND_HALF_DOWN);
-			$precio_sin_iva = round($precio_sin_iva, 0, PHP_ROUND_HALF_DOWN);
+			if (isset($precio_con_iva) && is_numeric($precio_con_iva)) {
+				$precio_con_iva = floor($precio_con_iva);
+			} else {
+				$precio_con_iva = 0; // Default value
+			}
 
 			$nombre_producto = iconv('utf-8', 'cp1252', $nombre_producto);
 

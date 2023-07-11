@@ -23,17 +23,23 @@
 			echo "<tbody>";
 			while($row = $res->fetch_assoc())
 			{
-				
+				//var_dump($row);
+				// die();
 				$id_wp_posts	 = $row['ID'];
-				$nombre_producto = $row['NOMBRE_PRODUCTO'];
-	
+				$nombre_producto = $row['post_title'];
+				//var_dump($id_wp_posts);
+				//die();
 				$obj_fd_stock->Verificar_ID_WP_POST($id_wp_posts);
-	
-	
+		
 				
+				//var_dump($id_wp_posts);
+				//var_dump($obj_fd_stock->Verificar_ID_WP_POST($id_wp_posts));
+				//die();
 				if($obj_fd_stock->Verificar_ID_WP_POST($id_wp_posts))
 				{
-					$obj_fd_stock->Insertar_Producto_Stock($id_wp_posts, "", 0);
+					//var_dump($id_wp_posts);
+					//die();
+					$obj_fd_stock->Insertar_Producto_Stock($id_wp_posts, 0, 0);
 				}
 				
 				
@@ -41,11 +47,28 @@
 				$row_stock = $res_stock->fetch_assoc();
 				
 				$cantidad_fardos = $obj_fd_stock->Extraer_Cantidad_Producto($id_wp_posts);
-				$id_producto_empresa = $row_stock["ID_PRODUCTO_EMPRESA"];
+				// $id_producto_empresa = $row_stock["ID_PRODUCTO_EMPRESA"];
+				if (isset($row_stock["ID_PRODUCTO_EMPRESA"]) && $row_stock["ID_PRODUCTO_EMPRESA"] !== null) {
+					$id_producto_empresa = $row_stock["ID_PRODUCTO_EMPRESA"];
+				} else {
+					// Handle the error or set a default value
+					$id_producto_empresa = 0; // Default value
+					// Or: throw new Exception("Invalid ID_PRODUCTO_EMPRESA value"); // Error message
+				}
 				$precio_sin_iva = $obj_fd_stock->Extraer_Precio_Producto($id_wp_posts);
+				//$precio_sin_iva = $row['_regular_price'];
+				if (isset($precio_sin_iva) && is_numeric($precio_sin_iva)) {
+					$precio_sin_iva = floor($precio_sin_iva);
+				} else {
+					$precio_sin_iva = 0; // Default value
+				}
+				
 				$precio_con_iva = $precio_sin_iva + $precio_sin_iva*0.19;
-				$precio_con_iva = round($precio_con_iva, 0, PHP_ROUND_HALF_DOWN);
-				$precio_sin_iva = round($precio_sin_iva, 0, PHP_ROUND_HALF_DOWN);
+				if (isset($precio_con_iva) && is_numeric($precio_con_iva)) {
+					$precio_con_iva = floor($precio_con_iva);
+				} else {
+					$precio_con_iva = 0; // Default value
+				}
 
 				echo "<tr>
 						<td>"; echo $id_producto_empresa; echo "<textarea style='width:0; height:0;visibility:hidden;'>$id_producto_empresa</textarea></td>";

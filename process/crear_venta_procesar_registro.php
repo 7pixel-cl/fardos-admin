@@ -97,7 +97,7 @@
 			$id_wp = $obj_fd_stock->Extraer_ID_WP($codigo_barras);
 			$res = $obj_fd_stock->Extraer_Nombre_Producto($id_wp);
 			$res = $res->fetch_assoc();
-			$nombre_producto = $res["NOMBRE_PRODUCTO"];
+			$nombre_producto = $res["post_title"];
 
 			if($nombre_producto)
 			{
@@ -116,7 +116,7 @@
 				$producto = $nombre_producto;
 				$cantidad = $cantidad_fardos;
 
-				$precio_cobrado = $obj_fd_linea_ventas->Extraer_Precio_Producto($id_wp);
+				$precio_cobrado = $obj_fd_linea_ventas->Extraer_Precio_Producto($id_wp)*1.19;
 				$iva_cobrado = $precio_cobrado*0.19;
 
 				$cantidad_stock = $obj_fd_stock->Extraer_Cantidad_Producto($id_wp);

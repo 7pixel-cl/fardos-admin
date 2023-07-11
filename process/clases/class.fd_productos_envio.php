@@ -12,7 +12,7 @@ class fd_productos_envio
 	function Extraer_Nombre_Producto($id)
 	{
 		$this->BD->Conectar();
-		$consulta="SELECT post_title NOMBRE_PRODUCTO FROM wp_posts WHERE ID = $id";
+		$consulta="SELECT post_title NOMBRE_PRODUCTO FROM syh_posts WHERE ID = $id";
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
 		
@@ -22,7 +22,7 @@ class fd_productos_envio
 	function Extraer_ID_Productos()
 	{
 		$this->BD->Conectar();
-		$consulta="SELECT ID FROM wp_posts WHERE post_type = 'post'";
+		$consulta="SELECT ID FROM syh_posts WHERE post_type = 'post'";
 		$res = $this->BD->Query($consulta) or die(mysql_error());
 		$this->BD->Desconectar();
 		

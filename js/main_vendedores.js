@@ -130,12 +130,15 @@ $(function()
 			console.log(pet);
 			console.log(met);
 		     ajaxRequest.done(function (response, textStatus, jqXHR){
-		     	console.log(response);
+		     	//console.log(response);
 		     	var id_modificar_v = response.split("-");
 		     	console.log("....................");
+				// console.log('testing1');
 
 		     	for(var i = 0; i < id_modificar_v.length-1; i++)
 		     	{
+				//	console.log('testing');
+					//console.log(id_modificar_v);
 		     		if($("#modif_id_"+id_modificar_v[i]).hasClass("modif_activo"))
 		     		{
 		     			console.log(id_modificar_v[i]);

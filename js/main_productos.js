@@ -32,8 +32,8 @@ $(function()
 	            data: info
 	        });
 
-			console.log(pet);
-			console.log(met);
+			//console.log(pet);
+			//console.log(met);
 		     ajaxRequest.done(function (response, textStatus, jqXHR){
 		     	console.log(response);
 		     	$("#impresion_tabla_anadir_producto").html(response);
@@ -93,7 +93,7 @@ $(function()
 	            type: met,
 	            data: info
 	        });
-
+			console.log('Here1');
 			console.log(pet);
 			console.log(met);
 		     ajaxRequest.done(function (response, textStatus, jqXHR){
@@ -141,6 +141,7 @@ $(function()
 		$("#modificar_productos_form #label_mensaje").css("display", "block");
 
 		var pet = $("#modificar_productos_form").attr("action");
+		console.log('Here 2');
 
 		var met = $("#modificar_productos_form").attr("method");
 
@@ -205,6 +206,7 @@ $(function()
 		var pet = $("#modificar_productos_form").attr("action");
 
 		var met = $("#modificar_productos_form").attr("method");
+		console.log('Here 3 ');
 
 		var ajaxRequest;
 		var info = $("#modificar_productos_form").serialize();

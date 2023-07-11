@@ -34,9 +34,11 @@ add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $ic
 //         Modificar_Productos_($product_id, $sku);
 //     }
 // }
-add_action('woocommerce_update_product', 'my_custom_function');
+add_action('woocommerce_update_product', 'updateProductSkuFardo');
+// New code for when a product is created
+add_action('woocommerce_new_product', 'updateProductSkuFardo');
 
-function my_custom_function($product_id) {
+function updateProductSkuFardo($product_id) {
     $product = wc_get_product($product_id);
     // Check if the SKU has changed
     if (isset($_POST['_sku'])) {
@@ -46,6 +48,7 @@ function my_custom_function($product_id) {
 function Modificar_Productos_($id_producto_empresa, $id) {
     global $wpdb;
     $query = "UPDATE fd_stock SET ID_PRODUCTO_EMPRESA = $id_producto_empresa WHERE ID_WP_POSTS = $id";
+    var_dump($query);
     $wpdb->query($query);
 }
 ?>

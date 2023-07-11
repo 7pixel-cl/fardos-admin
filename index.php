@@ -4,11 +4,11 @@
 	Plugin URI: http://www.fardosderopapremium.com/
 	Description: Plugin para administrar los fardos de ropa existentes en el sistema
 	Author: Manuel Estevez Gonzalez - 7Pixel.cl
-	Version: 1.1
+	Version: 1.3
 	Author URI: http://www.fardosderopapremium.com/
 */
 
-include(ABSPATH.'/wp-admin/includes/plugin.php');
+include_once(ABSPATH.'/wp-admin/includes/plugin.php');
 //require_once(ABSPATH.'/wp-content/plugins/fardos-admin/process/clases.php');
 $page_title = "Administración";
 $menu_title = "Fardos Admin";
@@ -45,7 +45,7 @@ function my_custom_function($product_id) {
 }
 function Modificar_Productos_($id_producto_empresa, $id) {
     global $wpdb;
-    $query = "UPDATE fardos.fd_stock SET ID_PRODUCTO_EMPRESA = $id_producto_empresa WHERE ID_WP_POSTS = $id";
+    $query = "UPDATE fd_stock SET ID_PRODUCTO_EMPRESA = $id_producto_empresa WHERE ID_WP_POSTS = $id";
     $wpdb->query($query);
 }
 ?>
